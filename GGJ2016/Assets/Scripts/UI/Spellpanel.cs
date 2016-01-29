@@ -45,6 +45,7 @@ public class Spellpanel : MonoBehaviour {
             {
                 Debug.Log("Spell: "+ spell.name);
                 eventManager.SpellCasted(spell);
+                _spell.Clear();
             }
             else
                 Debug.Log("Spell: Null");
