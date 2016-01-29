@@ -14,4 +14,4 @@ MonoBehaviour:
   Elements:
   - {fileID: 11400000, guid: a4c03ba30154346c4b2cf9a24ed88bbe, type: 2}
   - {fileID: 11400000, guid: 54c78357bd08c4c85ad64542ff605953, type: 2}
-  Event: {fileID: 0}
+  Event: {fileID: 11400000, guid: 941739a86dbcd4c3aaaec68275af055f, type: 2}
