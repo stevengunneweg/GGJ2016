@@ -17,9 +17,17 @@ public class SpellManager : MonoBehaviour {
     }
 
     public Spell FindSpell(List<Element> elements){
+        
         foreach(Spell spell in _spells){
+            
+            if(spell.Elements.Count != elements.Count){
+                continue;
+            }
+
             bool hasElements = elements.All(el => spell.Elements.Contains(el));
-            return spell;
+            if(hasElements){
+                return spell;
+            }
         }
 
         return null;

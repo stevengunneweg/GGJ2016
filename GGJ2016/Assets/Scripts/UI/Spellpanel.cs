@@ -21,6 +21,7 @@ public class Spellpanel : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SendSpell();
+            _spell.Clear();
         }
 	}
     public void AddElement(Element value)
@@ -36,7 +37,7 @@ public class Spellpanel : MonoBehaviour {
     }
     void SendSpell()
     {
-        Debug.Log("SendSpell");
+        Debug.Log("SendSpell " + _spell.Count);
         if (_spell.Count > 0)
         {
             Spell spell = spellManager.FindSpell(_spell);
