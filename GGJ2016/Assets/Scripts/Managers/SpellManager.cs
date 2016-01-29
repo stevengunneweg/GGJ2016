@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class SpellManager : MonoBehaviour {
 
@@ -12,6 +14,15 @@ public class SpellManager : MonoBehaviour {
     void Start () {
         SetSpellAndElements();
 
+    }
+
+    public Spell FindSpell(List<Element> elements){
+        foreach(Spell spell in _spells){
+            bool hasElements = elements.All(el => spell.Elements.Contains(el));
+            return spell;
+        }
+
+        return null;
     }
 	
 	// Update is called once per frame
@@ -30,7 +41,7 @@ public class SpellManager : MonoBehaviour {
         {
             _spells[i] = _spellsObjects[i] as Spell;
         }
-        for (int i = 0; i < _spellsObjects.Length; i++)
+        for (int i = 0; i < _elementsObjects.Length; i++)
         {
             _elements[i] = _elementsObjects[i] as Element;
         }
