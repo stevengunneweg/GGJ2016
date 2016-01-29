@@ -11,9 +11,6 @@ public class PopulationManager : MonoBehaviour {
     private void Start(){
     
         AddPopultation(2);
-        RemovePopultation(1);
-        RemovePopultation(1);
-    
     }
    
 
