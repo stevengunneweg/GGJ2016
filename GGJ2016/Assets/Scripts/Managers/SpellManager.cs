@@ -41,7 +41,7 @@ public class SpellManager : MonoBehaviour {
         {
             _spells[i] = _spellsObjects[i] as Spell;
         }
-        for (int i = 0; i < _spellsObjects.Length; i++)
+        for (int i = 0; i < _elementsObjects.Length; i++)
         {
             _elements[i] = _elementsObjects[i] as Element;
         }
