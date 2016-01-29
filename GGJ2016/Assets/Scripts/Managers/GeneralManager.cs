@@ -8,8 +8,4 @@ public class GeneralManager : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
