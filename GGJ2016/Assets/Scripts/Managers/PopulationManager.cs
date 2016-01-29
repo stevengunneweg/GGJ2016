@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PopulationManager : MonoBehaviour {
+
+    public Action<int> PopulationChanged;
 
     [SerializeField]
     private GameObject person;
@@ -20,7 +23,7 @@ public class PopulationManager : MonoBehaviour {
         for(int i = 0; i < amount; i++){
             GameObject newPerson = Instantiate(person);
             newPerson.transform.SetParent(transform, false);
-            newPerson.transform.position += new Vector3(Random.Range(-2.0f, 2.0f), 0, 0);
+            newPerson.transform.position += new Vector3(UnityEngine.Random.Range(-2.0f, 2.0f), 0, 0);
         }
 
     }
