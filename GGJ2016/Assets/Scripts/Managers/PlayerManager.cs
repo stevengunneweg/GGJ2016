@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerManager : MonoBehaviour {
 
+    public static PlayerManager instance;
+
     private float _experience =10;
     private float _expRate = 1;
     private float _expBenchmark = 100;
@@ -13,6 +15,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        instance = this;
         _temple = GameObject.Find("Prophet_Temple").GetComponent<Temple>();
 
     }
@@ -46,7 +49,6 @@ public class PlayerManager : MonoBehaviour {
     public void AddExperience()
     {
         _experience += _expRate;
-        Debug.Log("_experience: " + _experience);
         if (_experience >= _expBenchmark)
             LevelUp();
 
@@ -56,17 +58,20 @@ public class PlayerManager : MonoBehaviour {
         if (_experience >= 0)
         {
             _experience -= _expRate;
-            Debug.Log("_experience: " + _experience);
             if (_experience < 0)
                 LevelDown();
         }
     }
     void SetBenchMark()
     {
-        _expBenchmark = 10*-_currentLevel;
+        _expBenchmark = 100*_currentLevel;
     }
     void GameOver()
     {
         Debug.Log("GAMEOVER!!!!!");
+    }
+    public float PercentageAmount
+    {
+       get { return _experience / _expBenchmark; }
     }
 }
