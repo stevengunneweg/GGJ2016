@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour {
         _temple.RaiseTemple();
         _experience = 0;
         SetBenchMark();
+        FindObjectOfType<EnemyManager>().WhipeEnemies();
     }
     public void LevelDown()
     {
