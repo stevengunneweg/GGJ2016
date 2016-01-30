@@ -97,7 +97,8 @@ public class SpellManager : MonoBehaviour {
 
                 if (cur_spell != null) {
                     //Show spell effect
-                    cur_spell.Cast(hit.point);
+                    GameObject effectGameObject = Instantiate(cur_spell.Effect);
+                    effectGameObject.transform.position += hit.point;
                     foreach (Element el in selectedElems)
                     {
                         el.StartCooldown();
