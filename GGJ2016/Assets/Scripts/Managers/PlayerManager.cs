@@ -36,10 +36,9 @@ public class PlayerManager : MonoBehaviour {
 		if (CurrentLevel >= _maxLevel) {
 			GameWon();
 		} else {
-			_temple.RaiseTemple();
 			_experience = 0;
 			SetBenchMark();
-			FindObjectOfType<EnemyManager>().WhipeEnemies();
+			StartCoroutine(LevelTransition(true));
 		}
     }
     public void LevelDown()
@@ -49,9 +48,9 @@ public class PlayerManager : MonoBehaviour {
         if (CurrentLevel <= 0)
             GameOver();
         else {
-            _temple.LowerTemple();
             _experience = 0;
             SetBenchMark();
+			StartCoroutine(LevelTransition(false));
         }
     }
     public void AddExperience()
@@ -64,12 +63,6 @@ public class PlayerManager : MonoBehaviour {
     public void LowerExperience()
     {
         LevelDown();
-        if (_experience >= 0)
-        {
-            _experience -= _expRate;
-            if (_experience < 0)
-                LevelDown();
-        }
     }
     void SetBenchMark()
     {
@@ -77,12 +70,28 @@ public class PlayerManager : MonoBehaviour {
 	}
 	void GameOver() {
 		Debug.Log("GAMEOVER!!!!!");
+		Application.LoadLevel("LoseScene");
 	}
 	void GameWon() {
 		Debug.Log("YOU WON THE GAME!!");
+		Application.LoadLevel("WinScene");
 	}
 	public float PercentageAmount
     {
        get { return _experience / _expBenchmark; }
-    }
+	}
+
+	public IEnumerator LevelTransition(bool raise) {
+		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
+		foreach(Enemy enemy in enemies) {
+			enemy.Stun(2);
+		}
+		yield return new WaitForSeconds(1);
+		if (raise) {
+			_temple.RaiseTemple();
+			FindObjectOfType<EnemyManager>().WhipeEnemies();
+		} else {
+			_temple.LowerTemple();
+		}
+	}
 }

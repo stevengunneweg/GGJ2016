@@ -36,9 +36,9 @@ public class Spelitem : MonoBehaviour {
         }
         if (!LeanTween.isTweening(this.gameObject)) {
             if (selected)
-                LeanTween.scale(this.gameObject, Vector3.one * 1.3f, 0.2f).setEase(LeanTweenType.easeInOutElastic);
+                LeanTween.scale(this.gameObject, Vector3.one * 1.6f, 0.05f).setEase(LeanTweenType.easeOutElastic);
             else
-                LeanTween.scale(this.gameObject, Vector3.one, 0.2f);
+                LeanTween.scale(this.gameObject, Vector3.one, 0.1f).setEase(LeanTweenType.easeOutElastic);
         }
         
     }
