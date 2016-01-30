@@ -13,7 +13,7 @@ public class EnemySpawn : MonoBehaviour {
     private Transform _deactiveParent;
     private Transform _activeParent;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         instance = this;
         _deactiveParent = transform.Find("Deactive");
@@ -46,7 +46,6 @@ public class EnemySpawn : MonoBehaviour {
         }
         enemy.SetActive(true);
         enemy.transform.SetParent(_activeParent);
-        enemy.GetComponent<Enemy>().Spawn();
 
         return enemy.GetComponent<Enemy>();
 
