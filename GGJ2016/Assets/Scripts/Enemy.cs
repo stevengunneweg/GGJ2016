@@ -29,7 +29,13 @@ public class Enemy : MonoBehaviour {
 
     public void Kill(bool gainExperience)
 	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill");
+		int rand = (int)UnityEngine.Random.Range(1, 40);
+
+		if (rand == 36) {
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
+		} else {
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill");
+		}
         if(gainExperience){
             PlayerManager.instance.AddExperience();
         }
