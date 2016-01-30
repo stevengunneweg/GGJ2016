@@ -31,4 +31,8 @@ public class Spellpanel : MonoBehaviour {
         else
             Debug.Log(value.name + " Not available");
     }
+    public List<Element> SelectedElement()
+    {
+        return spellManager.SelectedElements();
+    }
 }

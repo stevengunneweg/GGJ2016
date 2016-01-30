@@ -105,7 +105,7 @@ public class SpellManager : MonoBehaviour {
                     }
 
 					if (cur_spell.name == "EarthSpell") {
-						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
+						//Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
 					}
 
 					if (cur_spell.name == "WindSpell") {
@@ -137,5 +137,9 @@ public class SpellManager : MonoBehaviour {
             }
             selectedElems.Clear();
         }
+    }
+    public List<Element> SelectedElements()
+    {
+        return selectedElems;
     }
 }

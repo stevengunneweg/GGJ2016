@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour {
 	}
 
     public void Kill(bool gainExperience)
-    {
+	{
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
         if(gainExperience){
             PlayerManager.instance.AddExperience();
         }
@@ -39,7 +40,7 @@ public class Enemy : MonoBehaviour {
         }
 
         StopAllCoroutines();
-        EnemySpawn.instance.RemoveEnemy(this.gameObject);
+		EnemySpawn.instance.RemoveEnemy(this.gameObject);
     }
 
     public void TryMove(){
