@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseSpellEffect : MonoBehaviour {
-    public virtual void ApplyEffectToEnemy(Enemy enemy)
-    {
-
-    }
+public abstract class BaseSpellEffect : MonoBehaviour {
+	
+	public abstract void ApplyEffectToEnemy(Enemy enemy);
 }
