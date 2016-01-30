@@ -7,15 +7,14 @@ public class FireSpellEffect : BaseSpellEffect {
 
     public override void ApplyEffectToEnemy(Enemy enemy)
     {
-		Debug.Log("ADDING BURN");
 		enemyBurn = Instantiate(enemyBurnPrefab);
 		enemyBurn.transform.SetParent(enemy.transform, false);
 
-		StartCoroutine(SetEnemyOnFire(enemy));
+		enemy.StartCoroutine(SetEnemyOnFire(enemy));
     }
 
 	private IEnumerator SetEnemyOnFire(Enemy enemy) {
 		yield return new WaitForSeconds(3);
-		enemy.Kill();
+		enemy.Kill(true);
 	}
 }

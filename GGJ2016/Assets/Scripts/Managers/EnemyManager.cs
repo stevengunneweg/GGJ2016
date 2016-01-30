@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿  using UnityEngine;
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour {
 
             if(newTile.X == WIDTH /2 && newTile.Y == HEIGHT / 2){
                 PlayerManager.instance.LowerExperience();
-                enemy.Kill();
+                enemy.Kill(false);
                 newTile.enemy = null;
                 WhipeEnemies();
             }
@@ -100,7 +100,7 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
         }
 
     }
@@ -196,7 +196,7 @@ public class EnemyManager : MonoBehaviour {
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         for (int i = enemies.Length - 1; i >= 0 ; i--) {
-            enemies[i].Kill();
+            enemies[i].Kill(false);
         }
     }
 

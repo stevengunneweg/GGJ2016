@@ -21,15 +21,19 @@ public class Enemy : MonoBehaviour {
 
     }
 
-    public void Kill()
+    public void Kill(bool gainExperience)
     {
+        if(gainExperience){
+            PlayerManager.instance.AddExperience();
+        }
+
         Tile tile = enemyManager.GetTileOfEnemy(this);
         if(tile != null){
             tile.enemy = null;
         }
 
+        StopAllCoroutines();
         EnemySpawn.instance.RemoveEnemy(this.gameObject);
-        StopCoroutine(MoveRoutine());
     }
 
     public void TryMove(){
@@ -37,7 +41,11 @@ public class Enemy : MonoBehaviour {
     }
 
     public void Move(Vector3 position){
-        transform.transform.localPosition = position;
+        Vector3 airPosition = transform.localPosition + (position - transform.localPosition) / 3;
+        airPosition += new Vector3(0, 2.0f, 0);
+        LeanTween.moveLocal(gameObject, airPosition, 0.10f).setEase(LeanTweenType.easeOutExpo).onComplete = delegate {
+            LeanTween.moveLocal(gameObject, position, 0.15f).setEase(LeanTweenType.easeInCubic);
+        };
     }
 
     private IEnumerator MoveRoutine(){
