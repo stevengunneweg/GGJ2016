@@ -193,8 +193,10 @@ public class EnemyManager : MonoBehaviour {
     }
 
     public void WhipeEnemies(){
-        for (int i = enemySpawn.ActiveEnemies.Count - 1; i >= 0 ; i--) {
-            enemySpawn.ActiveEnemies[i].GetComponent<Enemy>().Kill();
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        for (int i = enemies.Length - 1; i >= 0 ; i--) {
+            enemies[i].Kill();
         }
     }
 
