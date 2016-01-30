@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraMover.cs" />
+     <Compile Include="Assets\Scripts\CameraZoom.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
@@ -55,6 +56,12 @@
      <Compile Include="Assets\Scripts\Managers\Tile.cs" />
      <Compile Include="Assets\Scripts\Models\Element.cs" />
      <Compile Include="Assets\Scripts\Models\Spell.cs" />
+     <Compile Include="Assets\Scripts\Sound.cs" />
+     <Compile Include="Assets\Scripts\SpellEffects\BaseSpellEffect.cs" />
+     <Compile Include="Assets\Scripts\SpellEffects\EarthSpellEffect.cs" />
+     <Compile Include="Assets\Scripts\SpellEffects\FireSpellEffect.cs" />
+     <Compile Include="Assets\Scripts\SpellEffects\LightningSpellEffect.cs" />
+     <Compile Include="Assets\Scripts\SpellEffects\WindSpellEffect.cs" />
      <Compile Include="Assets\Scripts\Temple.cs" />
      <Compile Include="Assets\Scripts\UI\Expbar.cs" />
      <Compile Include="Assets\Scripts\UI\Spelitem.cs" />
