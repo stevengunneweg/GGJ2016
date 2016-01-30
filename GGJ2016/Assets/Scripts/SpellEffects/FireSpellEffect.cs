@@ -24,10 +24,12 @@ public class FireSpellEffect : BaseSpellEffect {
 
 	private IEnumerator SetEnemyOnFire(Enemy enemy) {
 		yield return new WaitForSeconds(3);
-		enemy.Kill(true);
+        enemy.Kill(true);
 	}
     private void BallHit()
     {
+        Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.20f, 0.25f);
+
         fireBlast_partcileSys.Play();
            Destroy(fireball);
         StartCoroutine(KillSelf());

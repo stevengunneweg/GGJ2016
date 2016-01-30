@@ -19,12 +19,14 @@ public class LightningSpellEffect : BaseSpellEffect {
         FindObjectOfType<FlashPanel>().Flash(Color.white, 0.2f);
         plane.SetActive(true);
 		enemy.Stun(2.0f);
-        LeanTween.alpha(plane, 0, 1.0f);
+        LeanTween.alpha(plane, 0, 0.75f);
         StartCoroutine(DestroyRoutine());
+
+        Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.20f, 0.4f);
 	}
 
     private IEnumerator DestroyRoutine(){
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
     }
 }

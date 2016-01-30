@@ -59,9 +59,7 @@ public class EnemyManager : MonoBehaviour {
 
             if(newTile.X == WIDTH /2 && newTile.Y == HEIGHT / 2){
                 PlayerManager.instance.LowerExperience();
-                enemy.Kill(false);
                 newTile.enemy = null;
-                WhipeEnemies();
             }
         }
     }
