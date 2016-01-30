@@ -26,10 +26,19 @@ public class SpellManager : MonoBehaviour {
             if(spell.Elements.Count != elements.Count){
                 continue;
             }
+            bool spellAvailable = true;
+            foreach(Element el in elements)
+            {
+                if (!el.Available)
+                    spellAvailable = false;
 
+            }
+            if (!spellAvailable)
+                continue;
             bool hasElements = elements.All(el => spell.Elements.Contains(el));
             if(hasElements){
-                return spell;
+                
+                    return spell;
             }
         }
 
@@ -40,11 +49,7 @@ public class SpellManager : MonoBehaviour {
     {
         selectedElems.Add(value);
     }
-
-    // Update is called once per frame
-    void Update () {
-
-    }
+    
     void SetSpellAndElements()
     {
         //_spells = Resources.FindObjectsOfTypeAll<Spell>();
@@ -73,7 +78,13 @@ public class SpellManager : MonoBehaviour {
     {
         get { return _elements; }
     }
-
+    void Update()
+    {
+        foreach (Element el in Elements)
+        {
+            el.Update();
+        }
+    }
 
     void FixedUpdate() {
         //if mouse button (left hand side) pressed instantiate a raycast
@@ -89,8 +100,11 @@ public class SpellManager : MonoBehaviour {
 
                 if (cur_spell != null) {
                     //Show spell effect
-                    GameObject effectGameObject = Instantiate(cur_spell.Effect);
-                    effectGameObject.transform.position += hit.point;
+                    cur_spell.Cast(hit.point);
+                    foreach (Element el in selectedElems)
+                    {
+                        el.StartCooldown();
+                    }
 
                     //Check collision with enemies
                     Collider[] hitColliders = Physics.OverlapSphere(hit.point, cur_spell.Radius);
