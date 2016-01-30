@@ -93,10 +93,10 @@ public class SpellManager : MonoBehaviour {
 					}
 
 					if (cur_spell.name == "WindSpell") {
-						
 					}
 
 					if (cur_spell.name == "FireSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
 
 					}
 
