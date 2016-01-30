@@ -3,6 +3,6 @@ using System.Collections;
 
 public class LightningSpellEffect : BaseSpellEffect {
 	public override void ApplyEffectToEnemy(Enemy enemy) {
-		enemy.Kill(true);
+		enemy.Stun(2.0f);
 	}
 }
