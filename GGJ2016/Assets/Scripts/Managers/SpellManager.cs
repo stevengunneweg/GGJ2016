@@ -91,6 +91,7 @@ public class SpellManager : MonoBehaviour {
                     //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
                     effectGameObject.transform.position += hit.point;
+					Sound sound = new Sound(transform.root.gameObject.GetComponent<AudioSource>(), "SFX/" + "WilhelmScream");
 
                     //Check collision with enemies
                     Collider[] hitColliders = Physics.OverlapSphere(hit.point, cur_spell.Radius);
