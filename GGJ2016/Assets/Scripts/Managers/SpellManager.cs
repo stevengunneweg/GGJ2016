@@ -88,8 +88,21 @@ public class SpellManager : MonoBehaviour {
                 Debug.Log(cur_spell);
 
                 if (cur_spell != null) {
+                    //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
                     effectGameObject.transform.position += hit.point;
+
+                    //Check collision with enemies
+                    Collider[] hitColliders = Physics.OverlapSphere(hit.point, cur_spell.Radius);
+                    for (int i = 0; i < hitColliders.Length; i++)
+                    {
+                        Enemy enemy = hitColliders[i].GetComponent<Enemy>();
+                        if (enemy != null)
+                        {
+                            Debug.Log(enemy);
+                            enemy.Kill();
+                        }
+                    }
                 }
             }
             selectedElems.Clear();
