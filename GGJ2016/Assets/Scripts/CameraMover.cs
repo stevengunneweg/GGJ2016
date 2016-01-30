@@ -16,7 +16,7 @@ public class CameraMover : MonoBehaviour {
                 MoveLeft();
             }
         }
-        Debug.Log(transform.rotation.eulerAngles);
+        //Debug.Log(transform.rotation.eulerAngles);
 	}
 
 
