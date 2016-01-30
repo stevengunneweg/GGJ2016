@@ -47,6 +47,7 @@ public class SpellManager : MonoBehaviour {
 
     internal void AddElementToQueue(Element value)
     {
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Click");
 		selectedElems.Clear();
         selectedElems.Add(value);
     }
