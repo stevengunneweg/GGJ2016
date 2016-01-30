@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour {
             }
         }
 
-        StartCoroutine(SpawnEnemies());
+        //StartCoroutine(SpawnEnemies());
     }
 
     public Vector3 GetNewEnemyPosition(Enemy enemy){
