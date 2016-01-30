@@ -22,6 +22,6 @@ public class Temple : MonoBehaviour {
     }
 
     private void ShakeCamera(){
-        Camera.main.GetComponent<CameraShaker>().Shake(0.03f, 0.8f);
+        Camera.main.GetComponent<CameraShaker>().Shake(0.13f, 0.8f);
     }
 }
