@@ -87,7 +87,20 @@ public class SpellManager : MonoBehaviour {
                     //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
                     effectGameObject.transform.position += hit.point;
-					Sound sound = new Sound(transform.root.gameObject.GetComponent<AudioSource>(), "SFX/" + "WilhelmScream");
+
+					if (cur_spell.name == "EarthSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
+					}
+
+					if (cur_spell.name == "WindSpell") {
+						
+					}
+
+					if (cur_spell.name == "FireSpell") {
+
+					}
+
+					Debug.Log (cur_spell.name);
 
                     //Check collision with enemies
                     Collider[] hitColliders = Physics.OverlapSphere(hit.point, cur_spell.Radius);
