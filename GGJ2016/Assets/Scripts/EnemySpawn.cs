@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class EnemySpawn : MonoBehaviour {
     public GameObject enemyPrefab;
+
+    public static EnemySpawn instance;
+
     private List<GameObject> _active_Enemies = new List<GameObject>();
     private List<GameObject> _deactive_Enemies = new List<GameObject>();
 
@@ -12,6 +15,7 @@ public class EnemySpawn : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        instance = this;
         _deactiveParent = transform.Find("Deactive");
         _activeParent = transform.Find("Active");
     }
@@ -41,11 +45,11 @@ public class EnemySpawn : MonoBehaviour {
             _active_Enemies.Add(enemy);
         }
         enemy.SetActive(true);
-        enemy.transform.position = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
         enemy.transform.SetParent(_activeParent);
+        enemy.GetComponent<Enemy>().Spawn();
 
     }
-    void RemoveEnemy(GameObject enemy)
+    public void RemoveEnemy(GameObject enemy)
     {
         _deactive_Enemies.Add(enemy);
         _active_Enemies.Remove(enemy);
