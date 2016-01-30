@@ -64,7 +64,6 @@ public class EnemyManager : MonoBehaviour {
 
         Tile newTile = null;
         neighbours.Sort((x, y) => x.Score - y.Score);
-        Debug.Log(neighbours.Count);
         foreach(Tile neighbour in neighbours){
             if(neighbour.HasEnemy() == false && currentTile.Score > neighbour.Score){
                 newTile = neighbour;
@@ -77,7 +76,7 @@ public class EnemyManager : MonoBehaviour {
     public IEnumerator SpawnEnemies(){
         while(true){
 
-            int amount = UnityEngine.Random.Range(1, 1);
+            int amount = UnityEngine.Random.Range(1, 4);
 
             for(int i = 0; i < amount; i++){
                 Enemy enemy = EnemySpawn.instance.CreateEnemy();
@@ -94,13 +93,19 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(3);
         }
 
     }
 
     private Vector3 GetWorldLocationOfTile(int x, int y){
-        return new Vector3(x * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (WIDTH/2)), 0, y * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (HEIGHT/2)));
+        int xMod = Math.Abs(x - WIDTH / 2);
+        int yMod = Math.Abs(y - HEIGHT / 2);
+        int biggestAxis = xMod > yMod ? xMod : yMod;
+        int level = WIDTH / 2 - biggestAxis;
+        float height = level * 1.5f;
+        Debug.Log(level);
+        return new Vector3(x * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (WIDTH/2)), height, y * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (HEIGHT/2)));
     }
 
     private Vector2 RandomStartTile(){
