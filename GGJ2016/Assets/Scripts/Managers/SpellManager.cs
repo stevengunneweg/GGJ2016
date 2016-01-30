@@ -66,4 +66,23 @@ public class SpellManager : MonoBehaviour {
         get { return _elements; }
     }
 
+
+    public float maxDistance = 50f;
+    void FixedUpdate() {
+        //if mouse button (left hand side) pressed instantiate a raycast
+        if (Input.GetMouseButtonDown(0)) {
+            //create a ray cast and set it to the mouses cursor position in game
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, maxDistance)) {
+                //log hit area to the console
+                Debug.Log(hit.point);
+
+                GameObject ding = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                ding.transform.position += hit.point;
+                Instantiate(ding);
+            }
+        }
+    }
+
 }
