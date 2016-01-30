@@ -8,4 +8,5 @@ public class Spell : ScriptableObject {
     public GameObject Effect;
     public int Radius = 10;
 
+    
 }
