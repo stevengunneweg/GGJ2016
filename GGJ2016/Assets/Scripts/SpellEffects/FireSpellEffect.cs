@@ -28,6 +28,8 @@ public class FireSpellEffect : BaseSpellEffect {
 	}
     private void BallHit()
     {
+        Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.20f, 0.25f);
+
         fireBlast_partcileSys.Play();
            Destroy(fireball);
         StartCoroutine(KillSelf());

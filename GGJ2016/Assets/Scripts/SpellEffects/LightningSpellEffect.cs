@@ -21,6 +21,8 @@ public class LightningSpellEffect : BaseSpellEffect {
 		enemy.Stun(2.0f);
         LeanTween.alpha(plane, 0, 0.75f);
         StartCoroutine(DestroyRoutine());
+
+        Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.20f, 0.4f);
 	}
 
     private IEnumerator DestroyRoutine(){
