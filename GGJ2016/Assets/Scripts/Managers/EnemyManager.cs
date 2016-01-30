@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour {
         Tile tileOfEnemy = Flatten(Tiles).FirstOrDefault(t => t.enemy == enemy);
 
         if(tileOfEnemy == null){
-            throw new Exception("COULD NOT FIND TILE OF ENEMY");
+            return;
         }
 
         Tile newTile = GetNewTilePosition(tileOfEnemy);
@@ -105,7 +105,7 @@ public class EnemyManager : MonoBehaviour {
 
     }
 
-    private Vector3 GetWorldLocationOfTile(int x, int y){
+    public Vector3 GetWorldLocationOfTile(int x, int y){
         int xMod = Math.Abs(x - WIDTH / 2);
         int yMod = Math.Abs(y - HEIGHT / 2);
         int biggestAxis = xMod > yMod ? xMod : yMod;
@@ -174,7 +174,7 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
-    private List<Tile> GetNeighborsOfTile(Tile tile) {
+    public List<Tile> GetNeighborsOfTile(Tile tile) {
         List<Tile> neighbours = new List<Tile>();
 
         if(tile.X > 0) // left

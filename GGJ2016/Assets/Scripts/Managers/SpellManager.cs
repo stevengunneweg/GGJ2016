@@ -109,12 +109,17 @@ public class SpellManager : MonoBehaviour {
 					}
 
 					if (cur_spell.name == "WindSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Wind");
 					}
 
 					if (cur_spell.name == "FireSpell") {
 						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
-
 					}
+
+					if (cur_spell.name == "LightningSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Lightning");
+					}
+
 
 					Debug.Log (cur_spell.name);
 
