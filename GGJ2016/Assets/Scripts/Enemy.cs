@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+	private float stunTimer;
+	private Coroutine moveRoutine;
+
     private EnemyManager enemyManager;
 
 	// Use this for initialization
@@ -10,16 +13,18 @@ public class Enemy : MonoBehaviour {
         enemyManager = FindObjectOfType<EnemyManager>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     public void Spawn(Vector3 position)
     {
         transform.localPosition = position;
-        StartCoroutine(MoveRoutine());
+		moveRoutine = StartCoroutine(MoveRoutine());
 
     }
+
+	public void Stun(float time) {
+		stunTimer = time;
+		StopCoroutine(moveRoutine);
+		moveRoutine = StartCoroutine(MoveRoutine());
+	}
 
     public void Kill(bool gainExperience)
     {
@@ -66,11 +71,15 @@ public class Enemy : MonoBehaviour {
 
     private IEnumerator MoveRoutine(){
         while(true){
-            
-            yield return new WaitForSeconds(2);
-            StartCoroutine(Shake(0.5f, 0.035f));
-            yield return new WaitForSeconds(0.4f);
-            TryMove();
+            if (stunTimer > 0) {
+				stunTimer -= Time.deltaTime;
+				yield return new WaitForEndOfFrame();
+			} else {
+				yield return new WaitForSeconds(2);
+				StartCoroutine(Shake(0.5f, 0.035f));
+				yield return new WaitForSeconds(0.4f);
+				TryMove();
+			}
         }
     }
 }
