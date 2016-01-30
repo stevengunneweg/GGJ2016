@@ -43,15 +43,33 @@ public class Enemy : MonoBehaviour {
     public void Move(Vector3 position){
         Vector3 airPosition = transform.localPosition + (position - transform.localPosition) / 3;
         airPosition += new Vector3(0, 2.0f, 0);
-        LeanTween.moveLocal(gameObject, airPosition, 0.10f).setEase(LeanTweenType.easeOutExpo).onComplete = delegate {
-            LeanTween.moveLocal(gameObject, position, 0.15f).setEase(LeanTweenType.easeInCubic);
+        LeanTween.moveLocal(gameObject, transform.localPosition + new Vector3(0, 0.05f, 0), 0.5f).onComplete = delegate {
+            LeanTween.moveLocal(gameObject, airPosition, 0.10f).setEase(LeanTweenType.easeOutExpo).onComplete = delegate {
+                LeanTween.moveLocal(gameObject, position, 0.15f).setEase(LeanTweenType.easeInCubic);
+            };
         };
+
+    }
+    private IEnumerator Shake(float seconds, float amount){
+        float time = 0;
+
+        while(time < seconds){
+            Vector3 ownPosition = transform.localPosition;
+
+            yield return new WaitForSeconds(0.01f);
+
+            transform.localPosition = ownPosition + (Random.insideUnitSphere * amount);
+            time += Time.deltaTime;
+        }
+
     }
 
     private IEnumerator MoveRoutine(){
         while(true){
-            yield return new WaitForSeconds(1);
-
+            
+            yield return new WaitForSeconds(2);
+            StartCoroutine(Shake(0.5f, 0.035f));
+            yield return new WaitForSeconds(0.4f);
             TryMove();
         }
     }
