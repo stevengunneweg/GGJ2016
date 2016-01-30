@@ -5,7 +5,7 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager instance;
 
-    private float _experience =10;
+    private float _experience =0;
     private float _expRate = 1;
     private float _expBenchmark = 100;
 
