@@ -8,6 +8,8 @@ public class EarthSpellEffect : BaseSpellEffect {
     {
         targetLocation = transform.position;
         StartCoroutine(MoveRock());
+        Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.15f, 0.20f);
+
         rock.transform.parent.Rotate(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)));
     }
 	public override void ApplyEffectToEnemy(Enemy enemy) {
