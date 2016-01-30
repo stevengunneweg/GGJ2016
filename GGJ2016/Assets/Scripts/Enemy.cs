@@ -9,6 +9,12 @@ public class Enemy : MonoBehaviour {
 
     private EnemyManager enemyManager;
 
+    [SerializeField]
+    private GameObject enemyModel;
+
+    [SerializeField]
+    private GameObject enemyRagdolModel;
+
 	// Use this for initialization
 	void Start () {
         enemyManager = FindObjectOfType<EnemyManager>();
@@ -46,7 +52,9 @@ public class Enemy : MonoBehaviour {
         }
 
         StopAllCoroutines();
-		EnemySpawn.instance.RemoveEnemy(this.gameObject);
+        LeanTween.cancel(gameObject);
+
+        FallApart();
     }
 
     public void TryMove(){
@@ -96,5 +104,34 @@ public class Enemy : MonoBehaviour {
 				TryMove();
 			}
         }
+    }
+
+    private void FallApart(){
+        Renderer[] renderers = enemyRagdolModel.transform.GetComponentsInChildren<Renderer>();
+
+        Destroy(enemyModel.gameObject);
+        enemyRagdolModel.SetActive(true);
+
+        foreach(Renderer renderer in renderers){
+            renderer.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            Rigidbody body = renderer.gameObject.AddComponent<Rigidbody>();
+            BoxCollider collider = renderer.gameObject.AddComponent<BoxCollider>();
+            collider.size /= 5;
+
+            if(body != null){
+                body.AddForce(UnityEngine.Random.insideUnitSphere * 2 + Vector3.up, ForceMode.Impulse);
+            }
+        }
+
+        StartCoroutine(FadeOut());
+
+
+        Animator animator = transform.GetComponentInChildren<Animator>();
+        Destroy(animator);
+    }
+
+    public IEnumerator FadeOut(){
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }
