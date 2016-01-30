@@ -26,6 +26,9 @@ public class Spellpanel : MonoBehaviour {
     }
     public void AddElement(Element value)
     {
-        spellManager.AddElementToQueue(value);
+        if (value.Available)
+            spellManager.AddElementToQueue(value);
+        else
+            Debug.Log(value.name + " Not available");
     }
 }
