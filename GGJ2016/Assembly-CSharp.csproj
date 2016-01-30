@@ -45,17 +45,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PopulationManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpellManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Tile.cs" />
      <Compile Include="Assets\Scripts\Models\Element.cs" />
      <Compile Include="Assets\Scripts\Models\Spell.cs" />
      <Compile Include="Assets\Scripts\Temple.cs" />
+     <Compile Include="Assets\Scripts\UI\Expbar.cs" />
      <Compile Include="Assets\Scripts\UI\Spelitem.cs" />
      <Compile Include="Assets\Scripts\UI\Spellpanel.cs" />
      <Compile Include="Assets\Scripts\Utils\CameraShaker.cs" />
