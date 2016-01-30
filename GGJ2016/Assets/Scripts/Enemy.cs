@@ -3,23 +3,39 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+    private EnemyManager enemyManager;
+
 	// Use this for initialization
 	void Start () {
-	
+        enemyManager = FindObjectOfType<EnemyManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-    public void Spawn()
+    public void Spawn(Vector3 position)
     {
-        transform.position = new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
+        transform.position = position;
+        StartCoroutine(MoveRoutine());
 
     }
 
     public void Kill()
     {
         EnemySpawn.instance.RemoveEnemy(this.gameObject);
+        StopCoroutine(MoveRoutine());
+    }
+
+    public void Move(){
+        enemyManager.MoveEnemyToNewPosition(this);
+    }
+
+    private IEnumerator MoveRoutine(){
+        while(true){
+            yield return new WaitForSeconds(1);
+
+            Move();
+        }
     }
 }
