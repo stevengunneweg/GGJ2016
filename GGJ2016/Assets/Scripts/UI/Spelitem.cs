@@ -34,5 +34,9 @@ public class Spelitem : MonoBehaviour {
             if (el.name == element.name) 
                 selected = true;
         }
+        if (selected)
+            LeanTween.scale(this.gameObject, Vector3.one * 1.2f, 0.2f);
+        else
+            LeanTween.scale(this.gameObject, Vector3.one, 0.2f);
     }
 }
