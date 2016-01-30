@@ -18,7 +18,6 @@ public class Element : ScriptableObject {
         if (!Available)
         {
             currentCooldown -= Time.deltaTime;
-            Debug.Log(name + " Cooldown: " + currentCooldown);
             if (currentCooldown <= 0)
             {
                 currentCooldown = 0;
