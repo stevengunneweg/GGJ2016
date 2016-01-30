@@ -61,8 +61,6 @@ public class SpellManager : MonoBehaviour {
         {
             _elements[i] = _elementsObjects[i] as Element;
         }
-        Debug.Log("_spells: " + _spells.Length+" 0:"+ _spells[0]);
-        Debug.Log("_elements: " + _elements.Length + " 0:" + _elements[0]);
     }
 
     public Spell[] Spells
@@ -83,9 +81,7 @@ public class SpellManager : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, maxDistance)) {
                 //log hit area to the console
-                Debug.Log(hit.point);
                 Spell cur_spell = FindSpell(selectedElems);
-                Debug.Log(cur_spell);
 
                 if (cur_spell != null) {
                     //Show spell effect
