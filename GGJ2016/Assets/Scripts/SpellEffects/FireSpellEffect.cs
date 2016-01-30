@@ -24,7 +24,7 @@ public class FireSpellEffect : BaseSpellEffect {
 
 	private IEnumerator SetEnemyOnFire(Enemy enemy) {
 		yield return new WaitForSeconds(3);
-		enemy.Kill(true);
+        enemy.Kill(true);
 	}
     private void BallHit()
     {
