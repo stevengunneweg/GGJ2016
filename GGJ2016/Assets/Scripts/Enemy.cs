@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour {
 	}
     public void Spawn(Vector3 position)
     {
-        transform.position = position;
+        transform.localPosition = position;
         StartCoroutine(MoveRoutine());
 
     }
