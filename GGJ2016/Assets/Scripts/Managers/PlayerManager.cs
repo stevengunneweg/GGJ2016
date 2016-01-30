@@ -77,9 +77,11 @@ public class PlayerManager : MonoBehaviour {
 	}
 	void GameOver() {
 		Debug.Log("GAMEOVER!!!!!");
+		Application.LoadLevel("LoseScene");
 	}
 	void GameWon() {
 		Debug.Log("YOU WON THE GAME!!");
+		Application.LoadLevel("WinScene");
 	}
 	public float PercentageAmount
     {
