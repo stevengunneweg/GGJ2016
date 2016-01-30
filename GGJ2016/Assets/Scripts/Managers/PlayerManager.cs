@@ -9,14 +9,16 @@ public class PlayerManager : MonoBehaviour {
     private float _expRate = 1;
     private float _expBenchmark = 100;
 
-    private int _currentLevel = 1;
+    public int CurrentLevel {get; private set;}
 
     private Temple _temple;
 
 	// Use this for initialization
 	void Start () {
+        CurrentLevel = 4;
+
         instance = this;
-        _temple = GameObject.Find("Prophet_Temple").GetComponent<Temple>();
+        _temple = FindObjectOfType<Temple>();
 
     }
     void Update()
@@ -28,17 +30,17 @@ public class PlayerManager : MonoBehaviour {
     }
 	void LevelUp()
     {
-        _currentLevel++;
-        Debug.Log("LevelUp: " + _currentLevel);
+        CurrentLevel++;
+        Debug.Log("LevelUp: " + CurrentLevel);
         _temple.RaiseTemple();
         _experience = 0;
         SetBenchMark();
     }
     public void LevelDown()
     {
-        _currentLevel--;
-        Debug.Log("LevelDown: " + _currentLevel);
-        if (_currentLevel <= 0)
+        CurrentLevel--;
+        Debug.Log("LevelDown: " + CurrentLevel);
+        if (CurrentLevel <= 0)
             GameOver();
         else {
             _temple.LowerTemple();
@@ -64,7 +66,7 @@ public class PlayerManager : MonoBehaviour {
     }
     void SetBenchMark()
     {
-        _expBenchmark = 100*_currentLevel;
+        _expBenchmark = 100*CurrentLevel;
     }
     void GameOver()
     {
