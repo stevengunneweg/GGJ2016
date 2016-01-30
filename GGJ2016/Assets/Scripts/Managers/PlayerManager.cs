@@ -5,9 +5,10 @@ public class PlayerManager : MonoBehaviour {
 
     public static PlayerManager instance;
 
-    private float _experience =0;
+    private float _experience = 0;
     private float _expRate = 1;
     private float _expBenchmark = 10;
+	private int _maxLevel = 8;
 
     public int CurrentLevel {get; private set;}
 
@@ -32,10 +33,14 @@ public class PlayerManager : MonoBehaviour {
     {
         CurrentLevel++;
         Debug.Log("LevelUp: " + CurrentLevel);
-        _temple.RaiseTemple();
-        _experience = 0;
-        SetBenchMark();
-        FindObjectOfType<EnemyManager>().WhipeEnemies();
+		if (CurrentLevel >= _maxLevel) {
+			GameWon();
+		} else {
+			_temple.RaiseTemple();
+			_experience = 0;
+			SetBenchMark();
+			FindObjectOfType<EnemyManager>().WhipeEnemies();
+		}
     }
     public void LevelDown()
     {
@@ -69,12 +74,14 @@ public class PlayerManager : MonoBehaviour {
     void SetBenchMark()
     {
         _expBenchmark = 10*CurrentLevel;
-    }
-    void GameOver()
-    {
-        Debug.Log("GAMEOVER!!!!!");
-    }
-    public float PercentageAmount
+	}
+	void GameOver() {
+		Debug.Log("GAMEOVER!!!!!");
+	}
+	void GameWon() {
+		Debug.Log("YOU WON THE GAME!!");
+	}
+	public float PercentageAmount
     {
        get { return _experience / _expBenchmark; }
     }
