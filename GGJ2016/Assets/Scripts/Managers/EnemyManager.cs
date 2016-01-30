@@ -111,7 +111,7 @@ public class EnemyManager : MonoBehaviour {
         int x = 0;
         int y = 0;
 
-        int min = PlayerManager.instance.CurrentLevel;
+        int min = WIDTH / 2 + PlayerManager.instance.CurrentLevel;
         switch((int)(UnityEngine.Random.value * 4)){
             case 0:
                 x = OuterRim;
@@ -137,7 +137,7 @@ public class EnemyManager : MonoBehaviour {
 
     private int OuterRim {
         get {
-            return WIDTH-1-PlayerManager.instance.CurrentLevel;
+            return WIDTH / 2 - PlayerManager.instance.CurrentLevel;
         }
     }
 
