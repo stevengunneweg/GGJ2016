@@ -133,4 +133,8 @@ public class SpellManager : MonoBehaviour {
             selectedElems.Clear();
         }
     }
+    public List<Element> SelectedElements()
+    {
+        return selectedElems;
+    }
 }
