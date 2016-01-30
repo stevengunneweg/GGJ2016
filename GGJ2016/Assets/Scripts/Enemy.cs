@@ -23,19 +23,28 @@ public class Enemy : MonoBehaviour {
 
     public void Kill()
     {
+        Tile tile = enemyManager.GetTileOfEnemy(this);
+        if(tile != null){
+            tile.enemy = null;
+        }
+
         EnemySpawn.instance.RemoveEnemy(this.gameObject);
         StopCoroutine(MoveRoutine());
     }
 
-    public void Move(){
+    public void TryMove(){
         enemyManager.MoveEnemyToNewPosition(this);
+    }
+
+    public void Move(Vector3 position){
+        transform.transform.localPosition = position;
     }
 
     private IEnumerator MoveRoutine(){
         while(true){
             yield return new WaitForSeconds(1);
 
-            Move();
+            TryMove();
         }
     }
 }

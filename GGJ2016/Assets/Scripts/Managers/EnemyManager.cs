@@ -11,23 +11,23 @@ public class EnemyManager : MonoBehaviour {
     private const int HEIGHT = 17;
     private const float TEMPLE_TILE_SIZE = 2.19f;
 
-    private Tile[,] tiles;
+    public Tile[,] Tiles;
     private EnemySpawn enemySpawn;
 
     private void Start(){
         enemySpawn = FindObjectOfType<EnemySpawn>();
 
-        tiles = new Tile[WIDTH,HEIGHT];
+        Tiles = new Tile[WIDTH,HEIGHT];
 
         for(int y = 0; y < HEIGHT; y++){
             for(int x = 0; x < WIDTH; x++){
-                tiles[x, y] = new Tile(x, y);
+                Tiles[x, y] = new Tile(x, y);
             }
         }
 
         int centerX = (int)Math.Floor(WIDTH/2.0f);
         int centerY = (int)Math.Floor(HEIGHT/2.0f);
-        FloodTile(tiles[centerX, centerY], 0, new List<Tile>());
+        FloodTile(Tiles[centerX, centerY], 0, new List<Tile>());
 
         //DebugDrawTiles();
 
@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour {
     }
 
     private void DebugDrawTiles(){
-        foreach(Tile tile in Flatten(tiles)){
+        foreach(Tile tile in Flatten(Tiles)){
             GameObject go = Instantiate<GameObject>(this.tile);
             go.GetComponentInChildren<TextMesh>().text = tile.X + "," + tile.Y + ": " + tile.Score;
             go.transform.position = GetWorldLocationOfTile(tile.X, tile.Y);
@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour {
     }
 
     public void MoveEnemyToNewPosition(Enemy enemy){
-        Tile tileOfEnemy = Flatten(tiles).FirstOrDefault(t => t.enemy == enemy);
+        Tile tileOfEnemy = Flatten(Tiles).FirstOrDefault(t => t.enemy == enemy);
 
         if(tileOfEnemy == null){
             throw new Exception("COULD NOT FIND TILE OF ENEMY");
@@ -54,7 +54,14 @@ public class EnemyManager : MonoBehaviour {
         if(newTile != null){
             tileOfEnemy.enemy = null;
             newTile.enemy = enemy;
-            enemy.transform.localPosition = GetWorldLocationOfTile(newTile.X, newTile.Y);
+            enemy.Move(GetWorldLocationOfTile(newTile.X, newTile.Y));
+
+            if(newTile.X == WIDTH /2 && newTile.Y == HEIGHT / 2){
+                PlayerManager.instance.LowerExperience();
+                enemy.Kill();
+                newTile.enemy = null;
+                WhipeEnemies();
+            }
         }
     }
 
@@ -84,8 +91,8 @@ public class EnemyManager : MonoBehaviour {
                 bool hasEnemy = true;
                 while(hasEnemy){
                     Vector2 tile = RandomStartTile();
-                    if(tiles[(int)tile.x, (int)tile.y].HasEnemy() == false){
-                        tiles[(int)tile.x, (int)tile.y].enemy = enemy;
+                    if(Tiles[(int)tile.x, (int)tile.y].HasEnemy() == false){
+                        Tiles[(int)tile.x, (int)tile.y].enemy = enemy;
                         Vector3 position = GetWorldLocationOfTile((int)tile.x, (int)tile.y);
                         enemy.Spawn(position);
                         hasEnemy = false;
@@ -171,17 +178,27 @@ public class EnemyManager : MonoBehaviour {
         List<Tile> neighbours = new List<Tile>();
 
         if(tile.X > 0) // left
-            neighbours.Add(tiles[tile.X - 1, tile.Y]);
+            neighbours.Add(Tiles[tile.X - 1, tile.Y]);
 
         if(tile.X < WIDTH - 1) // right
-            neighbours.Add(tiles[tile.X + 1, tile.Y]);
+            neighbours.Add(Tiles[tile.X + 1, tile.Y]);
 
         if(tile.Y > 0) // down
-            neighbours.Add(tiles[tile.X, tile.Y - 1]);
+            neighbours.Add(Tiles[tile.X, tile.Y - 1]);
 
         if(tile.Y < HEIGHT - 1) // up
-            neighbours.Add(tiles[tile.X, tile.Y + 1]);
+            neighbours.Add(Tiles[tile.X, tile.Y + 1]);
 
         return neighbours;
+    }
+
+    public void WhipeEnemies(){
+        for (int i = enemySpawn.ActiveEnemies.Count - 1; i >= 0 ; i--) {
+            enemySpawn.ActiveEnemies[i].GetComponent<Enemy>().Kill();
+        }
+    }
+
+    public Tile GetTileOfEnemy(Enemy enemy){
+        return Flatten(Tiles).FirstOrDefault(t => t.enemy == enemy);
     }
 }

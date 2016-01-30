@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour {
 
     public static EnemySpawn instance;
 
-    private List<GameObject> _active_Enemies = new List<GameObject>();
+    public List<GameObject> ActiveEnemies = new List<GameObject>();
     private List<GameObject> _deactive_Enemies = new List<GameObject>();
 
     private Transform _deactiveParent;
@@ -26,7 +26,7 @@ public class EnemySpawn : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.J))
             CreateEnemy();
         if (Input.GetKeyDown(KeyCode.K))
-            RemoveEnemy(_active_Enemies[_active_Enemies.Count-1]);
+            RemoveEnemy(ActiveEnemies[ActiveEnemies.Count-1]);
         if (Input.GetKeyDown(KeyCode.L))
             RemoveAll();
     }
@@ -36,13 +36,13 @@ public class EnemySpawn : MonoBehaviour {
         if (_deactive_Enemies.Count == 0)
         {
             enemy = Instantiate(enemyPrefab);
-            _active_Enemies.Add(enemy);
+            ActiveEnemies.Add(enemy);
         }
         else
         {
             enemy = _deactive_Enemies[_deactive_Enemies.Count - 1];
             _deactive_Enemies.Remove(enemy);
-            _active_Enemies.Add(enemy);
+            ActiveEnemies.Add(enemy);
         }
         enemy.SetActive(true);
         enemy.transform.SetParent(_activeParent);
@@ -53,21 +53,21 @@ public class EnemySpawn : MonoBehaviour {
     public void RemoveEnemy(GameObject enemy)
     {
         _deactive_Enemies.Add(enemy);
-        _active_Enemies.Remove(enemy);
+        ActiveEnemies.Remove(enemy);
         enemy.transform.position = Vector3.zero;
         enemy.SetActive(false);
         enemy.transform.SetParent(_deactiveParent);
     }
     void RemoveAll()
     {
-        foreach (GameObject enemy in _active_Enemies)
+        foreach (GameObject enemy in ActiveEnemies)
         {
             _deactive_Enemies.Add(enemy);
             enemy.transform.position = Vector3.zero;
             enemy.SetActive(false);
             enemy.transform.SetParent(_deactiveParent);
         }
-        _active_Enemies.Clear();
+        ActiveEnemies.Clear();
     }
 
 }
