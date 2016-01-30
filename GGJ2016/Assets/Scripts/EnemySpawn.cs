@@ -23,11 +23,11 @@ public class EnemySpawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.J))
             CreateEnemy();
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.K))
             RemoveEnemy(_active_Enemies[_active_Enemies.Count-1]);
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.L))
             RemoveAll();
     }
     public Enemy CreateEnemy()

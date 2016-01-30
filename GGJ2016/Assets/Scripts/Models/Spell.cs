@@ -5,6 +5,6 @@ using System.Collections.Generic;
 public class Spell : ScriptableObject {
 
     public List<Element> Elements;
-    public Event Event;
+    public GameObject Effect;
 
 }

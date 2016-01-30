@@ -15,10 +15,4 @@ public class MenuItems : MonoBehaviour {
     {
         ScriptableObjectUtility.CreateAsset<Spell> ();
     }
-
-    [MenuItem("Assets/Create/Event")]
-    public static void CreateEventAsset ()
-    {
-        ScriptableObjectUtility.CreateAsset<Event> ();
-    }
 }
