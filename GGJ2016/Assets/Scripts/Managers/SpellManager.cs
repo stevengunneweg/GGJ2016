@@ -5,28 +5,44 @@ using System.Linq;
 
 public class SpellManager : MonoBehaviour {
 
-    Object[] _spellsObjects;
-    Object[] _elementsObjects;
-    Spell[] _spells;
-    Element[] _elements;
+    private Object[] _spellsObjects;
+    private Object[] _elementsObjects;
+    private Spell[] _spells;
+    private Element[] _elements;
+
+    private List<Element> selectedElems = new List<Element>();
+    
+    public float maxDistance = 50f;
 
     // Use this for initialization
     void Start () {
         SetSpellAndElements();
-
     }
 
     public Spell FindSpell(List<Element> elements){
+        
         foreach(Spell spell in _spells){
+            
+            if(spell.Elements.Count != elements.Count){
+                continue;
+            }
+
             bool hasElements = elements.All(el => spell.Elements.Contains(el));
-            return spell;
+            if(hasElements){
+                return spell;
+            }
         }
 
         return null;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    internal void AddElementToQueue(Element value)
+    {
+        selectedElems.Add(value);
+    }
+
+    // Update is called once per frame
+    void Update () {
 
     }
     void SetSpellAndElements()
@@ -58,4 +74,25 @@ public class SpellManager : MonoBehaviour {
         get { return _elements; }
     }
 
+
+    void FixedUpdate() {
+        //if mouse button (left hand side) pressed instantiate a raycast
+        if (Input.GetMouseButtonDown(0)) {
+            //create a ray cast and set it to the mouses cursor position in game
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, maxDistance)) {
+                //log hit area to the console
+                Debug.Log(hit.point);
+                Spell cur_spell = FindSpell(selectedElems);
+                Debug.Log(cur_spell);
+
+                if (cur_spell != null) {
+                    GameObject effectGameObject = Instantiate(cur_spell.Effect);
+                    effectGameObject.transform.position += hit.point;
+                }
+            }
+            selectedElems.Clear();
+        }
+    }
 }
