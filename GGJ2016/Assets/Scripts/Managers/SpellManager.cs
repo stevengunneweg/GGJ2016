@@ -99,8 +99,7 @@ public class SpellManager : MonoBehaviour {
                         Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                         if (enemy != null)
                         {
-                            Debug.Log(enemy);
-                            enemy.Kill();
+                            cur_spell.Effect.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
                 }
