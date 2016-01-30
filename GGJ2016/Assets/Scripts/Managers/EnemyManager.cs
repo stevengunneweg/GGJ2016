@@ -54,7 +54,7 @@ public class EnemyManager : MonoBehaviour {
         if(newTile != null){
             tileOfEnemy.enemy = null;
             newTile.enemy = enemy;
-            enemy.transform.position = GetWorldLocationOfTile(newTile.X, newTile.Y);
+            enemy.transform.localPosition = GetWorldLocationOfTile(newTile.X, newTile.Y);
         }
     }
 
@@ -76,7 +76,7 @@ public class EnemyManager : MonoBehaviour {
     public IEnumerator SpawnEnemies(){
         while(true){
 
-            int amount = UnityEngine.Random.Range(1, 4);
+            int amount = UnityEngine.Random.Range(1, 1);
 
             for(int i = 0; i < amount; i++){
                 Enemy enemy = EnemySpawn.instance.CreateEnemy();
@@ -93,7 +93,7 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
         }
 
     }
@@ -104,7 +104,6 @@ public class EnemyManager : MonoBehaviour {
         int biggestAxis = xMod > yMod ? xMod : yMod;
         int level = WIDTH / 2 - biggestAxis;
         float height = level * 1.5f;
-        Debug.Log(level);
         return new Vector3(x * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (WIDTH/2)), height, y * TEMPLE_TILE_SIZE - (TEMPLE_TILE_SIZE * (HEIGHT/2)));
     }
 
@@ -112,22 +111,23 @@ public class EnemyManager : MonoBehaviour {
         int x = 0;
         int y = 0;
 
+        int min = WIDTH / 2 + PlayerManager.instance.CurrentLevel;
         switch((int)(UnityEngine.Random.value * 4)){
             case 0:
                 x = OuterRim;
-                y = UnityEngine.Random.Range(0, OuterRim);
+                y = UnityEngine.Random.Range(min, OuterRim);
                 break;
             case 1:
-                x = UnityEngine.Random.Range(0, OuterRim);
+                x = UnityEngine.Random.Range(min, OuterRim);
                 y = OuterRim;
                 break;
             case 2:
-                x = 0;
-                y = UnityEngine.Random.Range(0, OuterRim);
+                x = min;
+                y = UnityEngine.Random.Range(min, OuterRim);
                 break;
             case 3:
-                x = UnityEngine.Random.Range(0, OuterRim);
-                y = 0;
+                x = UnityEngine.Random.Range(min, OuterRim);
+                y = min;
                 break;
         }
 
@@ -137,7 +137,7 @@ public class EnemyManager : MonoBehaviour {
 
     private int OuterRim {
         get {
-            return WIDTH-1;
+            return WIDTH / 2 - PlayerManager.instance.CurrentLevel;
         }
     }
 
