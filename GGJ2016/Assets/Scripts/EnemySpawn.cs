@@ -30,7 +30,7 @@ public class EnemySpawn : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.L))
             RemoveAll();
     }
-    void CreateEnemy()
+    public Enemy CreateEnemy()
     {
         GameObject enemy;
         if (_deactive_Enemies.Count == 0)
@@ -47,6 +47,8 @@ public class EnemySpawn : MonoBehaviour {
         enemy.SetActive(true);
         enemy.transform.SetParent(_activeParent);
         enemy.GetComponent<Enemy>().Spawn();
+
+        return enemy.GetComponent<Enemy>();
 
     }
     public void RemoveEnemy(GameObject enemy)

@@ -88,9 +88,8 @@ public class SpellManager : MonoBehaviour {
                 Debug.Log(cur_spell);
 
                 if (cur_spell != null) {
-                    GameObject ding = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                    ding.transform.position += hit.point;
-                    Instantiate(ding);
+                    GameObject effectGameObject = Instantiate(cur_spell.Effect);
+                    effectGameObject.transform.position += hit.point;
                 }
             }
             selectedElems.Clear();
