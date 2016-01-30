@@ -8,6 +8,8 @@ public class CameraMover : MonoBehaviour {
 
     private bool tweening = false;
     Quaternion _targetRot;
+    float _lerpTime = 1;
+    float _startLerpTime = 0;
 
 	private void Update () {
         if (!tweening)
@@ -23,13 +25,17 @@ public class CameraMover : MonoBehaviour {
         }
         else {
 
+            float t = (Time.time - _startLerpTime) / _lerpTime;
+            t = t * t * t * (t * (6f * t - 15f) + 10f);
+
+
             float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
             if (diff > 270)
                 diff = -90;
             if (diff < -270)
                 diff = 90;
-            float angle = (diff) * (Time.deltaTime * 10);
-             if (diff > 0.01|| diff < -0.01)
+            float angle = (diff) * t;
+             if (diff > 0.05|| diff < -0.05)
                 transform.rotation *= Quaternion.Euler(0, angle, 0);
             else {
                 transform.rotation = _targetRot;
@@ -43,10 +49,12 @@ public class CameraMover : MonoBehaviour {
     private void MoveRight(){
         _targetRot =  transform.rotation * Quaternion.Euler(0, 90, 0);
         tweening = true;
+        _startLerpTime = Time.time;
     }
 
     private void MoveLeft(){
         _targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
         tweening = true;
+        _startLerpTime = Time.time;
     }
 }
