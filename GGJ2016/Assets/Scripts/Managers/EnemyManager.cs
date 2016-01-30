@@ -82,7 +82,8 @@ public class EnemyManager : MonoBehaviour {
     }
 
     public IEnumerator SpawnEnemies(){
-        while(true){
+		PlayerManager playerManager = FindObjectOfType<PlayerManager>();
+		while (true){
 
             int amount = UnityEngine.Random.Range(1, 1);
 
@@ -101,7 +102,7 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(4 - (playerManager.CurrentLevel / 2));
         }
 
     }
