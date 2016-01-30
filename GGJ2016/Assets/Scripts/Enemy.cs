@@ -58,6 +58,12 @@ public class Enemy : MonoBehaviour {
     }
 
     public void TryMove(){
+		int rand = (int)UnityEngine.Random.Range (1, 3);
+		if (rand == 1) {
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo");
+		} else {
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa");
+		}
         enemyManager.MoveEnemyToNewPosition(this);
     }
 
