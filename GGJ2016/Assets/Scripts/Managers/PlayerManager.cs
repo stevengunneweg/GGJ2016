@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour {
 	public IEnumerator LevelTransition(bool raise) {
 		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 		foreach(Enemy enemy in enemies) {
-			enemy.Stun(5);
+			enemy.Pause();
 		}
 		_experience = 0;
 		SetBenchMark();

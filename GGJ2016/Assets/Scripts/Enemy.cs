@@ -35,6 +35,13 @@ public class Enemy : MonoBehaviour {
 
     }
 
+	public void Pause() {
+		StopCoroutine(moveRoutine);
+	}
+	public void Continue() {
+		moveRoutine = StartCoroutine(MoveRoutine());
+	}
+
 	public void Stun(float time) {
 		stunTimer = time;
         if(moveRoutine != null){
