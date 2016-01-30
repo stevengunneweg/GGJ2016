@@ -66,8 +66,6 @@ public class SpellManager : MonoBehaviour {
         {
             _elements[i] = _elementsObjects[i] as Element;
         }
-        Debug.Log("_spells: " + _spells.Length+" 0:"+ _spells[0]);
-        Debug.Log("_elements: " + _elements.Length + " 0:" + _elements[0]);
     }
 
     public Spell[] Spells
@@ -94,9 +92,7 @@ public class SpellManager : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, maxDistance)) {
                 //log hit area to the console
-                Debug.Log(hit.point);
                 Spell cur_spell = FindSpell(selectedElems);
-                Debug.Log(cur_spell);
 
                 if (cur_spell != null) {
                     //Show spell effect
@@ -106,6 +102,20 @@ public class SpellManager : MonoBehaviour {
                         el.StartCooldown();
                     }
 
+					if (cur_spell.name == "EarthSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
+					}
+
+					if (cur_spell.name == "WindSpell") {
+					}
+
+					if (cur_spell.name == "FireSpell") {
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+
+					}
+
+					Debug.Log (cur_spell.name);
+
                     //Check collision with enemies
                     Collider[] hitColliders = Physics.OverlapSphere(hit.point, cur_spell.Radius);
                     for (int i = 0; i < hitColliders.Length; i++)
@@ -113,7 +123,7 @@ public class SpellManager : MonoBehaviour {
                         Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                         if (enemy != null)
                         {
-                            cur_spell.Effect.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
+							effectGameObject.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
                 }
