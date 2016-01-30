@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour {
 
     private float _experience =0;
     private float _expRate = 1;
-    private float _expBenchmark = 100;
+    private float _expBenchmark = 10;
 
     public int CurrentLevel {get; private set;}
 
@@ -67,7 +67,7 @@ public class PlayerManager : MonoBehaviour {
     }
     void SetBenchMark()
     {
-        _expBenchmark = 100*CurrentLevel;
+        _expBenchmark = 10*CurrentLevel;
     }
     void GameOver()
     {
