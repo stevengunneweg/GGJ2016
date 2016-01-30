@@ -64,12 +64,6 @@ public class PlayerManager : MonoBehaviour {
     public void LowerExperience()
     {
         LevelDown();
-        if (_experience >= 0)
-        {
-            _experience -= _expRate;
-            if (_experience < 0)
-                LevelDown();
-        }
     }
     void SetBenchMark()
     {
