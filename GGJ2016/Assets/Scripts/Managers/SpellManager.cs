@@ -38,6 +38,7 @@ public class SpellManager : MonoBehaviour {
 
     internal void AddElementToQueue(Element value)
     {
+		selectedElems.Clear();
         selectedElems.Add(value);
     }
 
