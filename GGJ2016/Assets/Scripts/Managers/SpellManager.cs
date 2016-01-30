@@ -5,15 +5,18 @@ using System.Linq;
 
 public class SpellManager : MonoBehaviour {
 
-    Object[] _spellsObjects;
-    Object[] _elementsObjects;
-    Spell[] _spells;
-    Element[] _elements;
+    private Object[] _spellsObjects;
+    private Object[] _elementsObjects;
+    private Spell[] _spells;
+    private Element[] _elements;
+
+    private List<Element> selectedElems = new List<Element>();
+    
+    public float maxDistance = 50f;
 
     // Use this for initialization
     void Start () {
         SetSpellAndElements();
-
     }
 
     public Spell FindSpell(List<Element> elements){
@@ -32,9 +35,14 @@ public class SpellManager : MonoBehaviour {
 
         return null;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    internal void AddElementToQueue(Element value)
+    {
+        selectedElems.Add(value);
+    }
+
+    // Update is called once per frame
+    void Update () {
 
     }
     void SetSpellAndElements()
@@ -67,7 +75,6 @@ public class SpellManager : MonoBehaviour {
     }
 
 
-    public float maxDistance = 50f;
     void FixedUpdate() {
         //if mouse button (left hand side) pressed instantiate a raycast
         if (Input.GetMouseButtonDown(0)) {
@@ -77,12 +84,16 @@ public class SpellManager : MonoBehaviour {
             if (Physics.Raycast(ray, out hit, maxDistance)) {
                 //log hit area to the console
                 Debug.Log(hit.point);
+                Spell cur_spell = FindSpell(selectedElems);
+                Debug.Log(cur_spell);
 
-                GameObject ding = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-                ding.transform.position += hit.point;
-                Instantiate(ding);
+                if (cur_spell != null) {
+                    GameObject ding = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                    ding.transform.position += hit.point;
+                    Instantiate(ding);
+                }
             }
+            selectedElems.Clear();
         }
     }
-
 }
