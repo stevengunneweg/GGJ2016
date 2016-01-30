@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
 
     private IEnumerator MoveRoutine(){
         while(true){
-            yield return new WaitForSeconds(10000);
+            yield return new WaitForSeconds(1);
 
             Move();
         }
