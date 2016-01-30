@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour {
 
     public Tile[,] Tiles;
     private EnemySpawn enemySpawn;
+	private Coroutine spawnCoroutine;
 
     private void Start(){
         enemySpawn = FindObjectOfType<EnemySpawn>();
@@ -29,10 +30,10 @@ public class EnemyManager : MonoBehaviour {
         int centerY = (int)Math.Floor(HEIGHT/2.0f);
         FloodTile(Tiles[centerX, centerY], 0, new List<Tile>());
 
-        //DebugDrawTiles();
+		//DebugDrawTiles();
 
-        StartCoroutine(SpawnEnemies());
-    }
+		StartCoroutine(LevelTransition(1));
+	}
 
     private void DebugDrawTiles(){
         foreach(Tile tile in Flatten(Tiles)){
@@ -193,14 +194,21 @@ public class EnemyManager : MonoBehaviour {
     }
 
     public void WhipeEnemies(){
+		StopCoroutine(spawnCoroutine);
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         for (int i = enemies.Length - 1; i >= 0 ; i--) {
             enemies[i].Kill(false);
         }
-    }
+		StartCoroutine(LevelTransition(3));
+	}
 
     public Tile GetTileOfEnemy(Enemy enemy){
         return Flatten(Tiles).FirstOrDefault(t => t.enemy == enemy);
     }
+
+	public IEnumerator LevelTransition(int time) {
+		yield return new WaitForSeconds(time);
+		spawnCoroutine = StartCoroutine(SpawnEnemies());
+	}
 }
