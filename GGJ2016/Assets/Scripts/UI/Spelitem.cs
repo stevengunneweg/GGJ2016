@@ -40,5 +40,6 @@ public class Spelitem : MonoBehaviour {
             else
                 LeanTween.scale(this.gameObject, Vector3.one, 0.2f);
         }
+        
     }
 }
