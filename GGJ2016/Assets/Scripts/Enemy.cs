@@ -15,10 +15,18 @@ public class Enemy : MonoBehaviour {
     [SerializeField]
     private GameObject enemyRagdolModel;
 
+    [SerializeField]
+    private GameObject dizzyParticles;
+
 	// Use this for initialization
 	void Start () {
         enemyManager = FindObjectOfType<EnemyManager>();
 	}
+
+    private void Update(){
+        dizzyParticles.SetActive(stunTimer > 0);
+        dizzyParticles.transform.Rotate(Vector3.up, 3);
+    }
 	
     public void Spawn(Vector3 position)
     {
@@ -27,14 +35,24 @@ public class Enemy : MonoBehaviour {
 
     }
 
+	public void Pause() {
+		StopCoroutine(moveRoutine);
+	}
+	public void Continue() {
+		moveRoutine = StartCoroutine(MoveRoutine());
+	}
+
 	public void Stun(float time) {
 		stunTimer = time;
-		StopCoroutine(moveRoutine);
+        if(moveRoutine != null){
+            StopCoroutine(moveRoutine);
+        }
 		moveRoutine = StartCoroutine(MoveRoutine());
 	}
 
     public void Kill(bool gainExperience)
-	{
+	{   
+        stunTimer = 0;
 		int rand = (int)UnityEngine.Random.Range(1, 40);
 
 		if (rand == 36) {

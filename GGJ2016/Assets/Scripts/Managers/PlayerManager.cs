@@ -31,27 +31,13 @@ public class PlayerManager : MonoBehaviour {
     }
 	void LevelUp()
     {
-        CurrentLevel++;
         Debug.Log("LevelUp: " + CurrentLevel);
-		if (CurrentLevel >= _maxLevel) {
-			GameWon();
-		} else {
-			_experience = 0;
-			SetBenchMark();
-			StartCoroutine(LevelTransition(true));
-		}
+		StartCoroutine(LevelTransition(true));
     }
     public void LevelDown()
     {
-        CurrentLevel--;
         Debug.Log("LevelDown: " + CurrentLevel);
-        if (CurrentLevel <= 0)
-            GameOver();
-        else {
-            _experience = 0;
-            SetBenchMark();
-			StartCoroutine(LevelTransition(false));
-        }
+		StartCoroutine(LevelTransition(false));
     }
     public void AddExperience()
     {
@@ -84,14 +70,27 @@ public class PlayerManager : MonoBehaviour {
 	public IEnumerator LevelTransition(bool raise) {
 		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 		foreach(Enemy enemy in enemies) {
-			enemy.Stun(2);
+			enemy.Pause();
 		}
-		yield return new WaitForSeconds(1);
+		_experience = 0;
+		SetBenchMark();
+		yield return new WaitForSeconds(raise? 1 : 2);
 		if (raise) {
+			CurrentLevel++;
 			_temple.RaiseTemple();
 			FindObjectOfType<EnemyManager>().WhipeEnemies();
+			if (CurrentLevel >= _maxLevel) {
+				yield return new WaitForSeconds(2);
+				GameWon();
+			}
 		} else {
+			CurrentLevel--;
 			_temple.LowerTemple();
+			FindObjectOfType<EnemyManager>().WhipeEnemies();
+			if (CurrentLevel <= 0) {
+				yield return new WaitForSeconds(2);
+				GameOver();
+			}
 		}
 	}
 }
