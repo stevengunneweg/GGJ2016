@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField]
     private GameObject dizzyParticles;
+    [SerializeField]
+    private GameObject SoulPrefab;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         enemyManager = FindObjectOfType<EnemyManager>();
 	}
 
@@ -64,6 +66,8 @@ public class Enemy : MonoBehaviour {
 		
         if(gainExperience){
             PlayerManager.instance.AddExperience();
+            GameObject soul = GameObject.Instantiate(SoulPrefab);
+            soul.transform.position = transform.position;
         }
 
         Tile tile = enemyManager.GetTileOfEnemy(this);
@@ -73,6 +77,7 @@ public class Enemy : MonoBehaviour {
 
         StopAllCoroutines();
         LeanTween.cancel(gameObject);
+
 
         FallApart();
     }
