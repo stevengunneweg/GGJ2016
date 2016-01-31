@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -32,8 +33,8 @@ public class PlayerManager : MonoBehaviour {
             LowerExperience();
     }
 	void LevelUp()
-	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp");
+    {
+        Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp");
         Debug.Log("LevelUp: " + CurrentLevel);
 		StartCoroutine(LevelTransition(true));
     }
@@ -108,8 +109,14 @@ public class PlayerManager : MonoBehaviour {
 		} else {
 
             yield return new WaitForSeconds(2);
-            Enemy highestBoy = enemies.OrderByDescending(item => item.transform.position.y).FirstOrDefault();
-            highestBoy.Stampede();
+
+            try {
+                Enemy highestBoy = enemies.OrderByDescending(item => item.transform.position.y).FirstOrDefault();
+                if(highestBoy != null)
+                    highestBoy.Stampede();
+            }finally{
+                
+            }
 
             yield return new WaitForSeconds(1f);
 			
