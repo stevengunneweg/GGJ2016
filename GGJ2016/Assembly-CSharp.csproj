@@ -45,17 +45,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FlashPanel.cs" />
      <Compile Include="Assets\Scripts\CameraMover.cs" />
      <Compile Include="Assets\Scripts\CameraZoom.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemySpawn.cs" />
+     <Compile Include="Assets\Scripts\FireLightEffect.cs" />
      <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\LoseSceneManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\MouseManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Managers\PopulationManager.cs" />
      <Compile Include="Assets\Scripts\Managers\SpellManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Tile.cs" />
+     <Compile Include="Assets\Scripts\Managers\WinSceneManager.cs" />
      <Compile Include="Assets\Scripts\Models\Element.cs" />
      <Compile Include="Assets\Scripts\Models\Spell.cs" />
+     <Compile Include="Assets\Scripts\PlingManager.cs" />
      <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\SpellEffects\BaseSpellEffect.cs" />
      <Compile Include="Assets\Scripts\SpellEffects\EarthSpellEffect.cs" />
@@ -68,6 +74,9 @@
      <Compile Include="Assets\Scripts\UI\Spellpanel.cs" />
      <Compile Include="Assets\Scripts\Utils\CameraShaker.cs" />
      <Compile Include="Assets\Scripts\Utils\ScriptableObjectCreator.cs" />
+     <Compile Include="Assets\Tab.cs" />
+     <Compile Include="Assets\TabPanel.cs" />
+     <None Include="Assets\Visuals\Shaders\UnlitAlpha.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
