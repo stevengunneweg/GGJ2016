@@ -96,7 +96,7 @@ public class PlayerManager : MonoBehaviour {
         SetBenchMark();
 		
 		if (raise) {
-
+            FindObjectOfType<Expbar>().PlayCompleted();
             yield return new WaitForSeconds(3);
 			CurrentLevel++;
 			_temple.RaiseTemple();
