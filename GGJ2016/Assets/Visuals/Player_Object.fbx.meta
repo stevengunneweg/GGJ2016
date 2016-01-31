@@ -1,0 +1,470 @@
+fileFormatVersion: 2
+guid: aad39658209ee4c43b27a740b3066a73
+timeCreated: 1454233609
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: GroundControl
+    100002: //RootNode
+    100004: ProphetMan
+    100006: Root
+    100008: TestAnimate:Character1_Head
+    100010: TestAnimate:Character1_Hips
+    100012: TestAnimate:Character1_LeftArm
+    100014: TestAnimate:Character1_LeftFingerBase
+    100016: TestAnimate:Character1_LeftFoot
+    100018: TestAnimate:Character1_LeftForeArm
+    100020: TestAnimate:Character1_LeftHand
+    100022: TestAnimate:Character1_LeftLeg
+    100024: TestAnimate:Character1_LeftShoulder
+    100026: TestAnimate:Character1_LeftToeBase
+    100028: TestAnimate:Character1_LeftUpLeg
+    100030: TestAnimate:Character1_Neck
+    100032: TestAnimate:Character1_RightArm
+    100034: TestAnimate:Character1_RightFingerBase
+    100036: TestAnimate:Character1_RightFoot
+    100038: TestAnimate:Character1_RightForeArm
+    100040: TestAnimate:Character1_RightHand
+    100042: TestAnimate:Character1_RightLeg
+    100044: TestAnimate:Character1_RightShoulder
+    100046: TestAnimate:Character1_RightToeBase
+    100048: TestAnimate:Character1_RightUpLeg
+    100050: TestAnimate:Character1_Spine
+    100052: TestAnimate:Character1_Spine1
+    100054: TestAnimate:Character1_Spine2
+    400000: GroundControl
+    400002: //RootNode
+    400004: ProphetMan
+    400006: Root
+    400008: TestAnimate:Character1_Head
+    400010: TestAnimate:Character1_Hips
+    400012: TestAnimate:Character1_LeftArm
+    400014: TestAnimate:Character1_LeftFingerBase
+    400016: TestAnimate:Character1_LeftFoot
+    400018: TestAnimate:Character1_LeftForeArm
+    400020: TestAnimate:Character1_LeftHand
+    400022: TestAnimate:Character1_LeftLeg
+    400024: TestAnimate:Character1_LeftShoulder
+    400026: TestAnimate:Character1_LeftToeBase
+    400028: TestAnimate:Character1_LeftUpLeg
+    400030: TestAnimate:Character1_Neck
+    400032: TestAnimate:Character1_RightArm
+    400034: TestAnimate:Character1_RightFingerBase
+    400036: TestAnimate:Character1_RightFoot
+    400038: TestAnimate:Character1_RightForeArm
+    400040: TestAnimate:Character1_RightHand
+    400042: TestAnimate:Character1_RightLeg
+    400044: TestAnimate:Character1_RightShoulder
+    400046: TestAnimate:Character1_RightToeBase
+    400048: TestAnimate:Character1_RightUpLeg
+    400050: TestAnimate:Character1_Spine
+    400052: TestAnimate:Character1_Spine1
+    400054: TestAnimate:Character1_Spine2
+    4300000: ProphetMan
+    7400000: Take 001
+    7400002: Take 0010
+    7400004: Take 0011
+    7400006: Take 0012
+    9500000: //RootNode
+    13700000: ProphetMan
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 4
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GroundControl
+        weight: 1
+      - path: GroundControl/Root
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot/TestAnimate:Character1_LeftToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot/TestAnimate:Character1_RightToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand/TestAnimate:Character1_LeftFingerBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck/TestAnimate:Character1_Head
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand/TestAnimate:Character1_RightFingerBase
+        weight: 1
+      - path: ProphetMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    - serializedVersion: 16
+      name: Take 0010
+      takeName: Take 001
+      firstFrame: 29
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GroundControl
+        weight: 1
+      - path: GroundControl/Root
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot/TestAnimate:Character1_LeftToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot/TestAnimate:Character1_RightToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand/TestAnimate:Character1_LeftFingerBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck/TestAnimate:Character1_Head
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand/TestAnimate:Character1_RightFingerBase
+        weight: 1
+      - path: ProphetMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    - serializedVersion: 16
+      name: Take 0011
+      takeName: Take 001
+      firstFrame: 54
+      lastFrame: 102
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GroundControl
+        weight: 1
+      - path: GroundControl/Root
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot/TestAnimate:Character1_LeftToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot/TestAnimate:Character1_RightToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand/TestAnimate:Character1_LeftFingerBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck/TestAnimate:Character1_Head
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand/TestAnimate:Character1_RightFingerBase
+        weight: 1
+      - path: ProphetMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    - serializedVersion: 16
+      name: Take 0012
+      takeName: Take 001
+      firstFrame: 103
+      lastFrame: 151
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: GroundControl
+        weight: 1
+      - path: GroundControl/Root
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_LeftUpLeg/TestAnimate:Character1_LeftLeg/TestAnimate:Character1_LeftFoot/TestAnimate:Character1_LeftToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_RightUpLeg/TestAnimate:Character1_RightLeg/TestAnimate:Character1_RightFoot/TestAnimate:Character1_RightToeBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_LeftShoulder/TestAnimate:Character1_LeftArm/TestAnimate:Character1_LeftForeArm/TestAnimate:Character1_LeftHand/TestAnimate:Character1_LeftFingerBase
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_Neck/TestAnimate:Character1_Head
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand
+        weight: 1
+      - path: GroundControl/Root/TestAnimate:Character1_Hips/TestAnimate:Character1_Spine/TestAnimate:Character1_Spine1/TestAnimate:Character1_Spine2/TestAnimate:Character1_RightShoulder/TestAnimate:Character1_RightArm/TestAnimate:Character1_RightForeArm/TestAnimate:Character1_RightHand/TestAnimate:Character1_RightFingerBase
+        weight: 1
+      - path: ProphetMan
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 0
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

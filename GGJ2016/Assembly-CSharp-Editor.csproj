@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Editor\ScriptobjectsMenu.cs" />
+     <None Include="Assets\Visuals\Shaders\UnlitAlpha.shader" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
