@@ -31,6 +31,10 @@ public class Element : ScriptableObject {
     {
         get { return currentCooldown; }
     }
+    public void ResetCoolDown()
+    {
+        currentCooldown = 0;
+    }
 
 }
 
