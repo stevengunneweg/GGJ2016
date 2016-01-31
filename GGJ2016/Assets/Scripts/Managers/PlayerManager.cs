@@ -68,14 +68,17 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public IEnumerator LevelTransition(bool raise) {
+
+        yield return new WaitForSeconds(1);
+
 		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 		foreach(Enemy enemy in enemies) {
 			enemy.Pause();
 		}
-		_experience = 0;
-		SetBenchMark();
 		yield return new WaitForSeconds(raise? 1 : 2);
 		if (raise) {
+
+            yield return new WaitForSeconds(2);
 			CurrentLevel++;
 			_temple.RaiseTemple();
 			FindObjectOfType<EnemyManager>().WhipeEnemies();
@@ -83,7 +86,9 @@ public class PlayerManager : MonoBehaviour {
 				yield return new WaitForSeconds(2);
 				GameWon();
 			}
+
 		} else {
+            
 			CurrentLevel--;
 			_temple.LowerTemple();
 			FindObjectOfType<EnemyManager>().WhipeEnemies();
@@ -91,6 +96,10 @@ public class PlayerManager : MonoBehaviour {
 				yield return new WaitForSeconds(2);
 				GameOver();
 			}
+
 		}
+
+        _experience = 0;
+        SetBenchMark();
 	}
 }
