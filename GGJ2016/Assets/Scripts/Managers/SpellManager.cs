@@ -68,6 +68,7 @@ public class SpellManager : MonoBehaviour {
         {
             _elements[i] = _elementsObjects[i] as Element;
             _elements[i].ResetCoolDown();
+            _elements[i].Free = PlayerManager.FreeMode;
         }
     }
 

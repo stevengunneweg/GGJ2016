@@ -4,6 +4,7 @@ using System.Linq;
 
 public class PlayerManager : MonoBehaviour {
 
+    public static bool FreeMode = false;
     public static PlayerManager instance;
 
     private float _experience = 0;

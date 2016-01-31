@@ -7,6 +7,7 @@ public class Element : ScriptableObject {
     public Sprite Image;
     public float Cooldown;
     private float currentCooldown = 0;
+    public bool Free = false;
 
     public void StartCooldown()
     {
@@ -25,7 +26,7 @@ public class Element : ScriptableObject {
         }
     }
     public bool Available {
-        get { return currentCooldown == 0; }
+        get { return Free? true : currentCooldown == 0; }
     }
     public float CurrentCooldown
     {
