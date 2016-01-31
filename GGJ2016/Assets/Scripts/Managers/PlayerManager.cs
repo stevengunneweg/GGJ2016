@@ -4,6 +4,7 @@ using System.Linq;
 
 public class PlayerManager : MonoBehaviour {
 
+    public static bool FreeMode = false;
     public static PlayerManager instance;
 
     private float _experience = 0;
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviour {
     }
 	void LevelUp()
 	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp2");
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp");
         Debug.Log("LevelUp: " + CurrentLevel);
 		StartCoroutine(LevelTransition(true));
     }
