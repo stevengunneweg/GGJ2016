@@ -34,6 +34,7 @@ public class LightningSpellEffect : BaseSpellEffect {
 
     public override void ApplyEffectToEnemy(Enemy enemy)
     {
+        FindObjectOfType<Player>().PlayLightning();
         enemy.Stun(3.0f);
     }
 
