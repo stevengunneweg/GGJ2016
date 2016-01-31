@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour {
     public static PlayerManager instance;
 
     private float _experience = 0;
-    private float _expRate = 1;
+    private float _expRate = 4;
     private float _expBenchmark = 10;
 	private int _maxLevel = 8;
 
@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        CurrentLevel = 4;
+        CurrentLevel = 3;
 
         instance = this;
         _temple = FindObjectOfType<Temple>();
