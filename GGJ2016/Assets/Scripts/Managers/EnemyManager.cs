@@ -202,7 +202,7 @@ public class EnemyManager : MonoBehaviour {
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         for (int i = enemies.Length - 1; i >= 0 ; i--) {
-            enemies[i].Kill(false);
+            enemies[i].Kill(false, false);
         }
 		StartCoroutine(LevelTransition(3));
 	}

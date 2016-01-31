@@ -50,16 +50,19 @@ public class Enemy : MonoBehaviour {
 		moveRoutine = StartCoroutine(MoveRoutine());
 	}
 
-    public void Kill(bool gainExperience)
+    public void Kill(bool gainExperience, bool playSound = true)
 	{   
         stunTimer = 0;
 		int rand = (int)UnityEngine.Random.Range(1, 40);
 
-		if (rand == 36) {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream", 0.5f);
-		} else {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill", 0.5f);
-		}
+        if(playSound){
+            if (rand == 36) {
+                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream", 0.3f);
+            } else {
+                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill", 0.3f);
+            }
+        }
+		
         if(gainExperience){
             PlayerManager.instance.AddExperience();
         }
@@ -162,15 +165,17 @@ public class Enemy : MonoBehaviour {
         Pause();
         Vector3 position = transform.localPosition;
 
-        LeanTween.moveLocalY(gameObject, position.y + 1, 0.14f).setEase(LeanTweenType.easeOutSine).setLoopPingPong(5);
+        LeanTween.moveLocalY(gameObject, position.y + 1, 0.14f).setEase(LeanTweenType.easeOutSine).setLoopPingPong(5).onComplete = delegate {
+            PlaySound();
+        };
     }
 
     private void PlaySound(){
         int rand = (int)UnityEngine.Random.Range (1, 3);
         if (rand == 1) {
-            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo");
+            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo", 0.5f);
         } else {
-            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa");
+            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa", 0.5f);
         }
     }
 }
