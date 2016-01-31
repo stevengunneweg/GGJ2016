@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour {
     }
 	void LevelUp()
 	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp2");
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp");
         Debug.Log("LevelUp: " + CurrentLevel);
 		StartCoroutine(LevelTransition(true));
     }
