@@ -97,8 +97,12 @@ public class SpellManager : MonoBehaviour {
                 Spell cur_spell = FindSpell(selectedElems);
 
                 if (cur_spell != null) {
+
+                    FindObjectOfType<TabPanel>().DeselectAll();
+
                     //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
+
                     effectGameObject.transform.position += hit.point;
                     foreach (Element el in selectedElems)
                     {
@@ -114,7 +118,7 @@ public class SpellManager : MonoBehaviour {
 					}
 
 					if (cur_spell.name == "FireSpell") {
-						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Meteor");
 					}
 
 					if (cur_spell.name == "LightningSpell") {
@@ -130,7 +134,7 @@ public class SpellManager : MonoBehaviour {
                     {
                         Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                         if (enemy != null)
-                        {
+						{
 							effectGameObject.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
