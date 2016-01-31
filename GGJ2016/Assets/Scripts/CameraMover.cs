@@ -65,7 +65,7 @@ public class CameraMover : MonoBehaviour {
     private void MoveRight()
     {
         //Debug.Log(transform.rotation.eulerAngles);
-        Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "woosh", 0.5f);
+        new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "woosh", 0.5f);
         _targetRot = transform.rotation * Quaternion.Euler(0, 90, 0);
         tweening = true;
         _startLerpTime = Time.time;
@@ -74,7 +74,7 @@ public class CameraMover : MonoBehaviour {
     private void MoveLeft()
     {
         //Debug.Log(transform.rotation.eulerAngles);
-        Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "woosh", 0.5f);
+        new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "woosh", 0.5f);
         _targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
         tweening = true;
         _startLerpTime = Time.time;

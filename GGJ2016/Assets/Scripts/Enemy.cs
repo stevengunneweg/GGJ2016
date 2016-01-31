@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
     {
         transform.localPosition = position;
 		moveRoutine = StartCoroutine(MoveRoutine());
-
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Spawn", 1f);
     }
 
 	public void Pause() {
@@ -186,9 +186,9 @@ public class Enemy : MonoBehaviour {
     private void PlaySound(){
         int rand = (int)UnityEngine.Random.Range (1, 3);
         if (rand == 1) {
-            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo", 0.5f);
+            new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo", 0.5f);
         } else {
-            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa", 0.5f);
+            new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa", 0.5f);
         }
     }
 }

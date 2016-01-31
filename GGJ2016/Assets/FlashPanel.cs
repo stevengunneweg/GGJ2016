@@ -4,22 +4,22 @@ using UnityEngine.UI;
 
 public class FlashPanel : MonoBehaviour {
 
-    private Renderer renderer;
+    private Renderer theRenderer;
 
 	// Use this for initialization
 	void Start () {
-        renderer = GetComponent<MeshRenderer>();
+        theRenderer = GetComponent<MeshRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        renderer.transform.LookAt(Camera.main.transform);
-        renderer.transform.Rotate(180, 0, 0);
+        theRenderer.transform.LookAt(Camera.main.transform);
+        theRenderer.transform.Rotate(180, 0, 0);
 	}
 
     public void Flash(Color color, float duration){
-        LeanTween.alpha(renderer.gameObject, 1.0f, duration/2.0f).onComplete = delegate {
-            LeanTween.alpha(renderer.gameObject, 0.0f, duration/2);
+        LeanTween.alpha(theRenderer.gameObject, 1.0f, duration/2.0f).onComplete = delegate {
+            LeanTween.alpha(theRenderer.gameObject, 0.0f, duration/2);
         };
     }
 }
