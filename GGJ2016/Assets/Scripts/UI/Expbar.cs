@@ -13,7 +13,7 @@ public class Expbar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         _slider = GetComponent<Slider>();
-        System.Stop();
+        System.Pause();
 
     }
 	
@@ -27,7 +27,8 @@ public class Expbar : MonoBehaviour {
     public void PlayCompleted(){
         System.Play();
         LeanTween.move(System.gameObject, ParticleEnd.transform.position, 1.0f).onComplete = delegate {
-            System.Stop();
+            System.Pause();
+            System.transform.position = ParticleBegin.transform.position;
         };
     }
 }
