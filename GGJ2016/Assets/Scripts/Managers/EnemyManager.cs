@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour {
         }
     }
 
-    public void MoveEnemyToNewPosition(Enemy enemy){
+	public void MoveEnemyToNewPosition(Enemy enemy){
         Tile tileOfEnemy = Flatten(Tiles).FirstOrDefault(t => t.enemy == enemy);
 
         if(tileOfEnemy == null){
@@ -54,8 +54,13 @@ public class EnemyManager : MonoBehaviour {
 
         Tile newTile = GetNewTilePosition(tileOfEnemy);
 
-        if(newTile != null){
-            tileOfEnemy.enemy = null;
+		if (newTile != null){
+			//Calculate new direction of enemy
+			enemy._direction = (GetWorldLocationOfTile(newTile.X, newTile.Y) - enemy.transform.position).normalized;
+			enemy._direction.y = 0;
+			enemy._lookRotation = Quaternion.LookRotation(enemy._direction);
+
+			tileOfEnemy.enemy = null;
             newTile.enemy = enemy;
             enemy.Move(GetWorldLocationOfTile(newTile.X, newTile.Y));
 
