@@ -166,8 +166,17 @@ public class Enemy : MonoBehaviour {
         Vector3 position = transform.localPosition;
 
         LeanTween.moveLocalY(gameObject, position.y + 1, 0.14f).setEase(LeanTweenType.easeOutSine).setLoopPingPong(5).onComplete = delegate {
-            PlaySound();
         };
+        StartCoroutine(StampedeSoundRoutine());
+    }
+
+    private IEnumerator StampedeSoundRoutine(){
+        for(int i = 0; i < 5; i++)
+        {
+            Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.15f, 0.20f);
+            PlaySound();
+            yield return new WaitForSeconds(0.28f);
+        }
     }
 
     private void PlaySound(){
