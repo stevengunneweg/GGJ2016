@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour {
 
     private void DebugDrawTiles(){
         foreach(Tile tile in Flatten(Tiles)){
-            GameObject go = Instantiate<GameObject>(this.tile);
+            GameObject go = Instantiate(this.tile);
             go.GetComponentInChildren<TextMesh>().text = tile.X + "," + tile.Y + ": " + tile.Score;
             go.transform.position = GetWorldLocationOfTile(tile.X, tile.Y);
         }
@@ -162,13 +162,15 @@ public class EnemyManager : MonoBehaviour {
     private void FloodTile(Tile tile, int score, List<Tile> doneTiles){
         List<Tile> neighbours = GetNeighborsOfTile(tile);
 
-        if(tile.Score > score){
-            tile.Score = score;
+        if(tile.Score > score && (tile.X != (WIDTH / 2) || tile.Y <= (HEIGHT / 2))){
+	        tile.Score = score;
         } else {
             return;
         }
 
-        tile.Score = score;
+		if (tile.X != (WIDTH / 2) || tile.Y <= (HEIGHT / 2)) {
+			tile.Score = score;
+		}
         doneTiles.Add(tile);
 
         foreach(Tile neighbourTile in neighbours){
