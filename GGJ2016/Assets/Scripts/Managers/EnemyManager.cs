@@ -15,6 +15,8 @@ public class EnemyManager : MonoBehaviour {
     private EnemySpawn enemySpawn;
 	private Coroutine spawnCoroutine;
 
+    private int beginnerPool = 3;
+
     private void Start(){
         enemySpawn = FindObjectOfType<EnemySpawn>();
 
@@ -100,7 +102,8 @@ public class EnemyManager : MonoBehaviour {
                 }
             }
 
-            yield return new WaitForSeconds(4 - (playerManager.CurrentLevel / 2));
+            int noobPool = Math.Max(beginnerPool--, 0);
+            yield return new WaitForSeconds(Math.Max(0.6f, 5.8f - (playerManager.CurrentLevel / 1.2f) + noobPool));
         }
 
     }
