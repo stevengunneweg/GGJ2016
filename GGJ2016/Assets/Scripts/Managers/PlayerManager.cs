@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class PlayerManager : MonoBehaviour {
 
@@ -70,7 +71,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public IEnumerator LevelTransition(bool raise) {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
 		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 		foreach(Enemy enemy in enemies) {
@@ -80,10 +81,9 @@ public class PlayerManager : MonoBehaviour {
         _experience = 0;
         SetBenchMark();
 
-		yield return new WaitForSeconds(raise? 1 : 2);
 		if (raise) {
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
 			CurrentLevel++;
 			_temple.RaiseTemple();
 			FindObjectOfType<EnemyManager>().WhipeEnemies();
@@ -93,7 +93,15 @@ public class PlayerManager : MonoBehaviour {
 			}
 
 		} else {
-            
+
+            yield return new WaitForSeconds(1);
+            Enemy highestBoy = enemies.OrderByDescending(item => item.transform.position.y).FirstOrDefault();
+            highestBoy.Stampede();
+
+            yield return new WaitForSeconds(1f);
+
+
+
 			CurrentLevel--;
 			_temple.LowerTemple();
 			FindObjectOfType<EnemyManager>().WhipeEnemies();

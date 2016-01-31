@@ -6,9 +6,9 @@ public class Sound {
 	//Sound sound = new Sound(audio, "Sounds/takeover sfx");
 	public AudioSource audio;
 
-	public Sound(AudioSource audio, string file){
+    public Sound(AudioSource audio, string file, float volume = 1){
 		this.audio = audio;
 		AudioClip clip = Resources.Load(file) as AudioClip;
-		audio.PlayOneShot(clip);
+        audio.PlayOneShot(clip, volume);
 	}
 }
