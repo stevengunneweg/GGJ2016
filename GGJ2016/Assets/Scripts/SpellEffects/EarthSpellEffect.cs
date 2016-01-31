@@ -24,7 +24,7 @@ public class EarthSpellEffect : BaseSpellEffect {
 
     private IEnumerator MoveRock()
     {
-        LeanTween.move(rock, targetLocation + new Vector3(0, 1, 0), 0.1f);
+        LeanTween.move(rock, targetLocation + new Vector3(0, 0.7f, 0), 0.1f);
         yield return new WaitForSeconds(1);
         LeanTween.move(rock, targetLocation + new Vector3(0, -5,0), 0.8f);
         yield return new WaitForSeconds(1);
