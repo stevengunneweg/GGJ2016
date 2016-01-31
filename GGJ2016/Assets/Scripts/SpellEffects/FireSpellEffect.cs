@@ -15,6 +15,7 @@ public class FireSpellEffect : BaseSpellEffect {
 
     public override void ApplyEffectToEnemy(Enemy enemy)
     {
+        FindObjectOfType<Player>().PlayFire();
 		enemyBurn = Instantiate(enemyBurnPrefab);
 		enemyBurn.transform.SetParent(enemy.transform, false);
 

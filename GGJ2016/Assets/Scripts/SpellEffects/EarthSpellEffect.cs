@@ -13,6 +13,9 @@ public class EarthSpellEffect : BaseSpellEffect {
         rock.transform.parent.Rotate(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)));
     }
 	public override void ApplyEffectToEnemy(Enemy enemy) {
+
+        FindObjectOfType<Player>().PlayEarth();
+
         foreach(Rigidbody body in GetComponentsInChildren<Rigidbody>()){
             body.AddForce(new Vector3(0, 1, 0), ForceMode.Acceleration);
         }
