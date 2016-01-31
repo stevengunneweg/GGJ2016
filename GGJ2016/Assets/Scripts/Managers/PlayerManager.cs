@@ -38,7 +38,8 @@ public class PlayerManager : MonoBehaviour {
 		StartCoroutine(LevelTransition(true));
     }
     public void LevelDown()
-    {
+	{
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelDown");
         Debug.Log("LevelDown: " + CurrentLevel);
 		StartCoroutine(LevelTransition(false));
     }
