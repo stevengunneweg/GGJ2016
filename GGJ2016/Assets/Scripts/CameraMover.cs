@@ -5,6 +5,7 @@ public class CameraMover : MonoBehaviour {
 	
     private const LeanTweenType tweenType = LeanTweenType.easeOutQuad;
     private const float time = 0.2f;
+    CameraZoom _cameraZoom;
 
     private bool tweening = false;
     Quaternion _targetRot;
@@ -14,54 +15,60 @@ public class CameraMover : MonoBehaviour {
     void Start()
     {
             _targetRot = transform.rotation;
+        _cameraZoom = transform.Find("GameObject/Main Camera").GetComponent<CameraZoom>();
     }
 
-    private void Update() {
-
-        if (!tweening)
+    private void Update()
+    {
+        if (_cameraZoom != null)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (!_cameraZoom.IsZooming)
             {
-                MoveRight();
+                if (!tweening)
+                {
+                    if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        MoveRight();
+                    }
+                    else if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        MoveLeft();
+                    }
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                MoveLeft();
-            }
-        }
-        if (tweening)
-        {
+                if (tweening)
+                {
+                    float t = (Time.time - _startLerpTime) / _lerpTime;
+                    t = t * t * t * (t * (6f * t - 15f) + 10f);
 
-            float t = (Time.time - _startLerpTime) / _lerpTime;
-            t = t * t * t * (t * (6f * t - 15f) + 10f);
-
-            float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
-            if (diff > 270)
-                diff = -90;
-            else if (diff < -270)
-                diff = 90;
-            float angle = (diff) * t;
-            if ((diff > 90)|| (diff < -90))
-                Debug.Log("diff " + diff+ " angle: "+angle);
-            if (diff > 0.05 || diff < -0.05)
-                transform.rotation *= Quaternion.Euler(0, angle, 0);
-            else {
-                transform.rotation = _targetRot;
-                tweening = false;
-            }
+                    float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
+                    if (diff > 270)
+                        diff = -90;
+                    else if (diff < -270)
+                        diff = 90;
+                    float angle = (diff) * t;
+                    if ((diff > 90) || (diff < -90))
+                    if (diff > 0.05 || diff < -0.05)
+                        transform.rotation *= Quaternion.Euler(0, angle, 0);
+                    else {
+                        transform.rotation = _targetRot;
+                        tweening = false;
+                    }
+                }
+            
         }
         //Debug.Log(transform.rotation.eulerAngles);
     }
 
 
     private void MoveRight(){
-        _targetRot = _targetRot * Quaternion.Euler(0, 90, 0);
+        _targetRot = transform.rotation * Quaternion.Euler(0, 90, 0);
         tweening = true;
         _startLerpTime = Time.time;
     }
 
     private void MoveLeft(){
-        _targetRot = _targetRot * Quaternion.Euler(0, -90, 0);
+        _targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
         tweening = true;
         _startLerpTime = Time.time;
     }
