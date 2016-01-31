@@ -76,6 +76,10 @@ public class PlayerManager : MonoBehaviour {
 		foreach(Enemy enemy in enemies) {
 			enemy.Pause();
 		}
+       
+        _experience = 0;
+        SetBenchMark();
+
 		yield return new WaitForSeconds(raise? 1 : 2);
 		if (raise) {
 
@@ -99,8 +103,5 @@ public class PlayerManager : MonoBehaviour {
 			}
 
 		}
-
-        _experience = 0;
-        SetBenchMark();
 	}
 }
