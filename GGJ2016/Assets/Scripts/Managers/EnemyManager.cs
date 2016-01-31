@@ -197,14 +197,18 @@ public class EnemyManager : MonoBehaviour {
         return neighbours;
     }
 
-    public void WhipeEnemies(){
+	public void PauseSpawning() {
 		StopCoroutine(spawnCoroutine);
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+	}
+	public void ContinueSpawning() {
+		StartCoroutine(LevelTransition(3));
+	}
 
+    public void WhipeEnemies(){
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
         for (int i = enemies.Length - 1; i >= 0 ; i--) {
             enemies[i].Kill(false);
         }
-		StartCoroutine(LevelTransition(3));
 	}
 
     public Tile GetTileOfEnemy(Enemy enemy){
