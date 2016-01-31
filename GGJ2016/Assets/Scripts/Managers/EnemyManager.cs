@@ -162,13 +162,13 @@ public class EnemyManager : MonoBehaviour {
     private void FloodTile(Tile tile, int score, List<Tile> doneTiles){
         List<Tile> neighbours = GetNeighborsOfTile(tile);
 
-        if(tile.Score > score && (tile.X != 8 || tile.Y <= 8)){
+        if(tile.Score > score && (tile.X != (WIDTH / 2) || tile.Y <= (HEIGHT / 2))){
 	        tile.Score = score;
         } else {
             return;
         }
 
-		if (tile.X != 8 || tile.Y <= 8) {
+		if (tile.X != (WIDTH / 2) || tile.Y <= (HEIGHT / 2)) {
 			tile.Score = score;
 		}
         doneTiles.Add(tile);
