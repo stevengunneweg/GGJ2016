@@ -122,7 +122,7 @@ public class EnemyManager : MonoBehaviour {
         int y = 0;
 
         int min = WIDTH / 2 + PlayerManager.instance.CurrentLevel;
-        switch((int)(UnityEngine.Random.value * 4)){
+        switch((int)(UnityEngine.Random.value * (beginnerPool > 0 ? 2 : 4))){
             case 0:
                 x = OuterRim;
                 y = UnityEngine.Random.Range(min, OuterRim);
