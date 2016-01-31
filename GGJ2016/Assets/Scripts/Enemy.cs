@@ -7,7 +7,11 @@ public class Enemy : MonoBehaviour {
 	private float stunTimer;
 	private Coroutine moveRoutine;
 
-    private EnemyManager enemyManager;
+	public Vector3 _direction;
+	public Quaternion _lookRotation;
+	private float rotationSpeed = 5;
+
+	private EnemyManager enemyManager;
 
     [SerializeField]
     private GameObject enemyModel;
@@ -17,16 +21,21 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField]
     private GameObject dizzyParticles;
+    [SerializeField]
+    private GameObject SoulPrefab;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         enemyManager = FindObjectOfType<EnemyManager>();
 	}
 
-    private void Update(){
+	private void Update(){
         dizzyParticles.SetActive(stunTimer > 0);
         dizzyParticles.transform.Rotate(Vector3.up, 3);
-    }
+
+		//Rotate enemy to where he's going
+		this.transform.rotation = Quaternion.Slerp(transform.rotation, this._lookRotation, Time.deltaTime * rotationSpeed);
+	}
 	
     public void Spawn(Vector3 position)
     {
@@ -64,6 +73,8 @@ public class Enemy : MonoBehaviour {
 		
         if(gainExperience){
             PlayerManager.instance.AddExperience();
+            GameObject soul = GameObject.Instantiate(SoulPrefab);
+            soul.transform.position = transform.position;
         }
 
         Tile tile = enemyManager.GetTileOfEnemy(this);
@@ -73,6 +84,7 @@ public class Enemy : MonoBehaviour {
 
         StopAllCoroutines();
         LeanTween.cancel(gameObject);
+
 
         FallApart();
     }
