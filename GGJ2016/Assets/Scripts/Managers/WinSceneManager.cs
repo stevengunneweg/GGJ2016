@@ -13,5 +13,8 @@ public class WinSceneManager : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Return)) {
 			Application.LoadLevel("Main");
 		}
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.Quit();
+		}
 	}
 }
