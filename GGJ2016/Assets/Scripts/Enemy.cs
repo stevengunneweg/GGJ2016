@@ -173,6 +173,7 @@ public class Enemy : MonoBehaviour {
     private IEnumerator StampedeSoundRoutine(){
         for(int i = 0; i < 5; i++)
         {
+            Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.15f, 0.20f);
             PlaySound();
             yield return new WaitForSeconds(0.28f);
         }
