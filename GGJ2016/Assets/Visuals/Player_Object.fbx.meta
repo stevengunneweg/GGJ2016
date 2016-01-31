@@ -62,10 +62,10 @@ ModelImporter:
     400052: TestAnimate:Character1_Spine1
     400054: TestAnimate:Character1_Spine2
     4300000: ProphetMan
-    7400000: Take 001
-    7400002: Take 0010
-    7400004: Take 0011
-    7400006: Take 0012
+    7400000: Idle
+    7400002: Lightning Spell
+    7400004: Fire Spell
+    7400006: Earth Spell
     9500000: //RootNode
     13700000: ProphetMan
   materials:
@@ -90,7 +90,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Idle
       takeName: Take 001
       firstFrame: 4
       lastFrame: 28
@@ -174,7 +174,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0.96
     - serializedVersion: 16
-      name: Take 0010
+      name: Lightning Spell
       takeName: Take 001
       firstFrame: 29
       lastFrame: 53
@@ -258,7 +258,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0.96
     - serializedVersion: 16
-      name: Take 0011
+      name: Fire Spell
       takeName: Take 001
       firstFrame: 54
       lastFrame: 102
@@ -342,7 +342,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0.96
     - serializedVersion: 16
-      name: Take 0012
+      name: Earth Spell
       takeName: Take 001
       firstFrame: 103
       lastFrame: 151
