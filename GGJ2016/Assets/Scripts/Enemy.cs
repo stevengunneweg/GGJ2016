@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
     {
         transform.localPosition = position;
 		moveRoutine = StartCoroutine(MoveRoutine());
-
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Spawn", 1f);
     }
 
 	public void Pause() {
