@@ -56,9 +56,9 @@ public class Enemy : MonoBehaviour {
 		int rand = (int)UnityEngine.Random.Range(1, 40);
 
 		if (rand == 36) {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream");
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream", 0.5f);
 		} else {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill");
+			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill", 0.5f);
 		}
         if(gainExperience){
             PlayerManager.instance.AddExperience();
@@ -76,12 +76,6 @@ public class Enemy : MonoBehaviour {
     }
 
     public void TryMove(){
-		int rand = (int)UnityEngine.Random.Range (1, 3);
-		if (rand == 1) {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo");
-		} else {
-			Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa");
-		}
         enemyManager.MoveEnemyToNewPosition(this);
     }
 
@@ -93,9 +87,11 @@ public class Enemy : MonoBehaviour {
     }
 
     public void Move(Vector3 position, Action callback = null){
+
         Vector3 airPosition = transform.localPosition + (position - transform.localPosition) / 3;
         airPosition += new Vector3(0, 2.3f, 0);
         LeanTween.moveLocal(gameObject, transform.localPosition + new Vector3(0, 0.05f, 0), 0.5f).onComplete = delegate {
+            PlaySound();
             LeanTween.moveLocal(gameObject, airPosition, 0.12f).setEase(LeanTweenType.easeOutSine).onComplete = delegate {
                 LeanTween.moveLocal(gameObject, position, 0.25f).setEase(LeanTweenType.easeInSine).onComplete = callback;
             };
@@ -160,5 +156,21 @@ public class Enemy : MonoBehaviour {
     public IEnumerator FadeOut(){
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
+    }
+
+    public void Stampede(){
+        Pause();
+        Vector3 position = transform.localPosition;
+
+        LeanTween.moveLocalY(gameObject, position.y + 1, 0.14f).setEase(LeanTweenType.easeOutSine).setLoopPingPong(5);
+    }
+
+    private void PlaySound(){
+        int rand = (int)UnityEngine.Random.Range (1, 3);
+        if (rand == 1) {
+            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Hoo");
+        } else {
+            Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Haa");
+        }
     }
 }
