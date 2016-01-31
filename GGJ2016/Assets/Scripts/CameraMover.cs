@@ -14,7 +14,8 @@ public class CameraMover : MonoBehaviour {
 
     void Start()
     {
-            _targetRot = transform.rotation;
+        tweening = false;
+        _targetRot = transform.rotation;
         _cameraZoom = transform.Find("GameObject/Main Camera").GetComponent<CameraZoom>();
     }
 
@@ -37,8 +38,8 @@ public class CameraMover : MonoBehaviour {
                 }
             }
                 if (tweening)
-                {
-                    float t = (Time.time - _startLerpTime) / _lerpTime;
+            {
+                float t = (Time.time - _startLerpTime) / _lerpTime;
                     t = t * t * t * (t * (6f * t - 15f) + 10f);
 
                     float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
@@ -47,7 +48,6 @@ public class CameraMover : MonoBehaviour {
                     else if (diff < -270)
                         diff = 90;
                     float angle = (diff) * t;
-                    if ((diff > 90) || (diff < -90))
                     if (diff > 0.05 || diff < -0.05)
                         transform.rotation *= Quaternion.Euler(0, angle, 0);
                     else {
@@ -61,13 +61,15 @@ public class CameraMover : MonoBehaviour {
     }
 
 
-    private void MoveRight(){
+    private void MoveRight()
+    {
         _targetRot = transform.rotation * Quaternion.Euler(0, 90, 0);
         tweening = true;
         _startLerpTime = Time.time;
     }
 
-    private void MoveLeft(){
+    private void MoveLeft()
+    {
         _targetRot = transform.rotation * Quaternion.Euler(0, -90, 0);
         tweening = true;
         _startLerpTime = Time.time;
