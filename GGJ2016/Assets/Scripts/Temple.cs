@@ -6,7 +6,7 @@ public class Temple : MonoBehaviour {
     public void RaiseTemple(){
 		LeanTween.moveLocalY(gameObject, transform.localPosition.y + 1.6f, 2).setEase(LeanTweenType.easeOutQuad);
 		ShakeCamera();
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "TempleGrow");
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "TempleGrow2");
     }
 
     public void LowerTemple(){
