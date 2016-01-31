@@ -114,7 +114,7 @@ public class SpellManager : MonoBehaviour {
 					}
 
 					if (cur_spell.name == "FireSpell") {
-						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+						Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Meteor");
 					}
 
 					if (cur_spell.name == "LightningSpell") {
@@ -130,7 +130,8 @@ public class SpellManager : MonoBehaviour {
                     {
                         Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                         if (enemy != null)
-                        {
+						{
+							Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
 							effectGameObject.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
