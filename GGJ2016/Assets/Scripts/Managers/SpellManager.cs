@@ -97,6 +97,9 @@ public class SpellManager : MonoBehaviour {
                 Spell cur_spell = FindSpell(selectedElems);
 
                 if (cur_spell != null) {
+
+                    FindObjectOfType<TabPanel>().DeselectAll();
+
                     //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
 

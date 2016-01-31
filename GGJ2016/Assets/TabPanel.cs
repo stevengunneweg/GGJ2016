@@ -30,4 +30,10 @@ public class TabPanel : MonoBehaviour {
             spellManager.AddElementToQueue(spellManager.Elements[3]);
         }
     }
+
+    public void DeselectAll(){
+        transform.GetChild(0).GetComponent<Tab>().Deselect();
+        transform.GetChild(1).GetComponent<Tab>().Deselect();
+        transform.GetChild(2).GetComponent<Tab>().Deselect();
+    }
 }
