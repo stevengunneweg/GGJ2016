@@ -70,17 +70,18 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	public IEnumerator LevelTransition(bool raise) {
-
-        yield return new WaitForSeconds(0.5f);
-
+		
+		EnemyManager emgr = GameObject.FindObjectOfType<EnemyManager>();
+		emgr.PauseSpawning();
 		Enemy[] enemies = GameObject.FindObjectsOfType<Enemy>();
 		foreach(Enemy enemy in enemies) {
 			enemy.Pause();
 		}
        
-        _experience = 0;
+        _experience -= _expBenchmark;
         SetBenchMark();
-
+		
+		yield return new WaitForSeconds(1);
 		if (raise) {
 
             yield return new WaitForSeconds(3);
@@ -111,5 +112,6 @@ public class PlayerManager : MonoBehaviour {
 			}
 
 		}
+		emgr.ContinueSpawning();
 	}
 }
