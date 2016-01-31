@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Linq;
 
@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour {
     }
 	void LevelUp()
 	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp");
+		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "LevelUp2");
         Debug.Log("LevelUp: " + CurrentLevel);
 		StartCoroutine(LevelTransition(true));
     }
