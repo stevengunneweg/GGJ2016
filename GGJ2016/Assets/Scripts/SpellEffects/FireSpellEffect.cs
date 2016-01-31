@@ -29,7 +29,7 @@ public class FireSpellEffect : BaseSpellEffect {
 	}
     private void BallHit()
 	{
-		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+		//Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
         Camera.main.transform.parent.GetComponent<CameraShaker>().Shake(0.20f, 0.25f);
 
         fireBlast_partcileSys.Play();
