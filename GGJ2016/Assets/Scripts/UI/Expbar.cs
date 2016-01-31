@@ -26,9 +26,9 @@ public class Expbar : MonoBehaviour {
 
     public void PlayCompleted(){
         System.Play();
-        LeanTween.move(System.gameObject, ParticleEnd.transform.position, 1.0f).onComplete = delegate {
-            System.Pause();
-            System.transform.position = ParticleBegin.transform.position;
+        LeanTween.moveLocal(System.gameObject, ParticleEnd.transform.localPosition, 1.0f).onComplete = delegate {
+            System.Stop();
+            System.transform.localPosition = ParticleBegin.transform.localPosition;
         };
     }
 }
