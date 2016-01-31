@@ -54,12 +54,11 @@ public class Enemy : MonoBehaviour {
 	{   
         stunTimer = 0;
 		int rand = (int)UnityEngine.Random.Range(1, 40);
-
         if(playSound){
             if (rand == 36) {
-                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream", 0.3f);
+                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "WilhelmScream", 1f);
             } else {
-                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill", 0.3f);
+                Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Kill", 1f);
             }
         }
 		

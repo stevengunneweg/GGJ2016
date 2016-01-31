@@ -4,6 +4,7 @@ using System.Linq;
 
 public class PlayerManager : MonoBehaviour {
 
+    public static bool FreeMode = false;
     public static PlayerManager instance;
 
     private float _experience = 0;
@@ -55,6 +56,13 @@ public class PlayerManager : MonoBehaviour {
     void SetBenchMark()
     {
         _expBenchmark = 10*CurrentLevel;
+		if (CurrentLevel == 4) {
+			_expBenchmark = 8 * _expRate;
+		} else if (CurrentLevel == 3) {
+			_expBenchmark = 4 * _expRate;
+		} else if (CurrentLevel == 2) {
+			_expBenchmark = 2 * _expRate;
+		}
 	}
 	void GameOver() {
 		Debug.Log("GAMEOVER!!!!!");
@@ -80,6 +88,9 @@ public class PlayerManager : MonoBehaviour {
 		}
        
         _experience -= _expBenchmark;
+		if (_experience < 0) {
+			_experience = 0;
+		}
         SetBenchMark();
 		
 		if (raise) {

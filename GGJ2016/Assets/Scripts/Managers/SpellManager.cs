@@ -11,6 +11,7 @@ public class SpellManager : MonoBehaviour {
     private Element[] _elements;
 
     private List<Element> selectedElems = new List<Element>();
+    private string _currentSelectedElementName = "";
     
     public float maxDistance = 50f;
 
@@ -48,8 +49,15 @@ public class SpellManager : MonoBehaviour {
     internal void AddElementToQueue(Element value)
     {
 		Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Click");
-		selectedElems.Clear();
+        if (PlayerManager.FreeMode)
+        {
+            if (_currentSelectedElementName == value.Name)
+                return;
+        }
+            selectedElems.Clear();
         selectedElems.Add(value);
+
+        _currentSelectedElementName = value.Name;
     }
     
     void SetSpellAndElements()
@@ -67,6 +75,8 @@ public class SpellManager : MonoBehaviour {
         for (int i = 0; i < _elementsObjects.Length; i++)
         {
             _elements[i] = _elementsObjects[i] as Element;
+            _elements[i].ResetCoolDown();
+            _elements[i].Free = PlayerManager.FreeMode;
         }
     }
 
@@ -98,7 +108,8 @@ public class SpellManager : MonoBehaviour {
 
                 if (cur_spell != null) {
 
-                    FindObjectOfType<TabPanel>().DeselectAll();
+                    if (!PlayerManager.FreeMode)
+                        FindObjectOfType<TabPanel>().DeselectAll();
 
                     //Show spell effect
                     GameObject effectGameObject = Instantiate(cur_spell.Effect);
@@ -138,9 +149,10 @@ public class SpellManager : MonoBehaviour {
 							effectGameObject.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
+                    if (!PlayerManager.FreeMode)
+                        selectedElems.Clear();
                 }
             }
-            selectedElems.Clear();
         }
     }
     public List<Element> SelectedElements()
