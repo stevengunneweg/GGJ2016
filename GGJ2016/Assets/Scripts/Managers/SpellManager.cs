@@ -131,7 +131,9 @@ public class SpellManager : MonoBehaviour {
                         Enemy enemy = hitColliders[i].GetComponent<Enemy>();
                         if (enemy != null)
 						{
-							Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+							if (cur_spell.name == "FireSpell") {
+								Sound sound = new Sound (transform.root.gameObject.GetComponent<AudioSource> (), "SFX/" + "Fire");
+							}
 							effectGameObject.GetComponent<BaseSpellEffect>().ApplyEffectToEnemy(enemy);
                         }
                     }
