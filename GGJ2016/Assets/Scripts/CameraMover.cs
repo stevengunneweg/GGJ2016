@@ -38,24 +38,24 @@ public class CameraMover : MonoBehaviour {
                     }
                 }
             }
-                if (tweening)
+            if (tweening)
             {
                 float t = (Time.time - _startLerpTime) / _lerpTime;
-                    t = t * t * t * (t * (6f * t - 15f) + 10f);
+                t = t * t * t * (t * (6f * t - 15f) + 10f);
 
-                    float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
-                    if (diff > 270)
-                        diff = -90;
-                    else if (diff < -270)
-                        diff = 90;
-                    float angle = (diff) * t;
-                    if (diff > 0.05 || diff < -0.05)
-                        transform.rotation *= Quaternion.Euler(0, angle, 0);
-                    else {
-                        transform.rotation = _targetRot;
-                        tweening = false;
-                    }
+                float diff = (_targetRot.eulerAngles.y - transform.rotation.eulerAngles.y);
+                if (diff > 270)
+                    diff = -90;
+                else if (diff < -270)
+                    diff = 90;
+                float angle = (diff) * t;
+                if (diff > 0.05 || diff < -0.05)
+                    transform.rotation *= Quaternion.Euler(0, angle, 0);
+                else {
+                    transform.rotation = _targetRot;
+                    tweening = false;
                 }
+            }
             
         }
         //Debug.Log(transform.rotation.eulerAngles);

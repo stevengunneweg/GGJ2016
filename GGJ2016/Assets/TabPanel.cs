@@ -11,11 +11,11 @@ public class TabPanel : MonoBehaviour {
 	
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             SelectSpell(0);
-        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        } else if (Input.GetKeyDown(KeyCode.W)) {
             SelectSpell(1);
-        } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+        } else if (Input.GetKeyDown(KeyCode.E)) {
             SelectSpell(2);
         } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
             spellManager.AddElementToQueue(spellManager.Elements[3]);

@@ -151,7 +151,11 @@ public class Enemy : MonoBehaviour {
 
         foreach(Renderer renderer in renderers){
             renderer.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-            Rigidbody body = renderer.gameObject.AddComponent<Rigidbody>();
+            Rigidbody body;
+            if (renderer.gameObject.GetComponent<Rigidbody>() == null)
+                body = renderer.gameObject.AddComponent<Rigidbody>();
+            else
+                body = renderer.gameObject.GetComponent<Rigidbody>();
             BoxCollider collider = renderer.gameObject.AddComponent<BoxCollider>();
             collider.size /= 5;
 
